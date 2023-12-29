@@ -1,7 +1,7 @@
 <script setup>
 import { ref, reactive, onMounted, computed } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
 
 // images
 import imgUrl from "@/assets/img/artist.jpg";
@@ -11,7 +11,7 @@ import sliderImgUrl from "@/assets/img/banner/slider-1.jpg";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const modules = [Autoplay, Pagination, Navigation];
+const modules = [Autoplay, Pagination, Navigation, EffectFade];
 
 const onSwiper = ref(null);
 const onSlideChange = ref(null);
@@ -36,7 +36,7 @@ const handleSlideChange = () => {
     <div class="container mx-auto relative">
       <div class="grid grid-cols-1 text-center">
         <h4
-          class="text-yellow-500 lg:text-5xl text-4xl lg:leading-normal leading-normal font-bold mb-7 position-relative"
+          class="text-amber-200 lg:text-5xl text-4xl lg:leading-normal leading-normal font-bold mb-7 position-relative"
         >
           Celebrating, Nurturing, and Empowering <br />
           Musical Talents
@@ -51,11 +51,11 @@ const handleSlideChange = () => {
         </p>
       </div>
     </div>
-    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+    <div class="absolute bottom-20 left-1/2 transform -translate-x-1/2">
       <a href="#nominees">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-8 w-8 text-white animate-bounce"
+          class="h-8 w-8 text-yellow-400 animate-bounce"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -71,68 +71,67 @@ const handleSlideChange = () => {
   </section>
 
   <!-- swipper starts here -->
-  <section id="nominees">
-    <div class="container mx-auto py-48">
-      <div class="grid grid-cols-12 gap-4">
-        <div class="intro col-span-4 mx-8">
-          <h2 class="text-6xl font-bold">Meet the Exceptional Nominees</h2>
-          <p class="py-8">
-            Step into the realm of musical excellence as we proudly present our
-            extraordinary nominees. These talented individuals and groups represent the
-            pinnacle of artistic achievement and dedication within the world of music.
-            Handpicked for their outstanding contributions, they embody innovation,
-            passion, and the spirit of musical creativity.
-          </p>
-        </div>
-        <div class="col-span-8">
-          <swiper
-            :slides-per-view="3"
-            :space-between="5"
-            :navigation="true"
-            :modules="modules"
-            @swiper="onSwiper"
-            @slideChange="onSlideChange"
-          >
-            <swiper-slide v-for="index in 10" :key="index">
-              <div class="relative">
-                <img class="rounded" :src="imgUrl" alt="Product Image" />
-                <div
-                  class="absolute inset-0 flex flex-col bg-gradient-to-b from-transparent to-black rounded-3"
-                >
-                  <div class="flex-grow flex flex-col justify-end p-3 text-center">
-                    <h4 class="text-white font-bold">Artist Name</h4>
-                    <p class="text-white text-opacity-85">Best Artist of the year</p>
-                    <div class="py-4 mx-auto">
-                      <a
-                        href="#"
-                        class="text-white bg-yellow-500 hover:bg-yellow-700 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900"
-                        >View Profile</a
-                      >
-                    </div>
+  <section id="nominees" class="container mx-auto py-48 px-4 md:px-0 md:py-48">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+      <div class="col-span-5">
+        <h2 class="text-6xl font-bold">Meet the Exceptional Nominees</h2>
+        <p class="py-8">
+          Step into the realm of musical excellence as we proudly present our
+          extraordinary nominees. These talented individuals and groups represent the
+          pinnacle of artistic achievement and dedication within the world of music.
+          Handpicked for their outstanding contributions, they embody innovation, passion,
+          and the spirit of musical creativity.
+        </p>
+      </div>
+      <div class="col-span-7">
+        <swiper
+          :slides-per-view="5"
+          :space-between="1"
+          :navigation="true"
+          :modules="modules"
+          @swiper="onSwiper"
+          @slideChange="onSlideChange"
+        >
+          <swiper-slide v-for="index in 10" :key="index">
+            <div class="relative">
+              <img class="rounded" :src="imgUrl" alt="Product Image" />
+              <div
+                class="absolute inset-0 flex flex-col bg-gradient-to-b from-transparent to-black rounded-3"
+              >
+                <div class="flex-grow flex flex-col justify-end p-3 text-center">
+                  <h4 class="text-white font-bold">Artist Name</h4>
+                  <p class="text-white text-opacity-85">Best Artist of the year</p>
+                  <div class="py-4 mx-auto">
+                    <a
+                      href="#"
+                      class="text-white bg-yellow-500 hover:bg-yellow-700 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900"
+                      >View Profile</a
+                    >
                   </div>
                 </div>
               </div>
-            </swiper-slide>
-          </swiper>
-        </div>
+            </div>
+          </swiper-slide>
+        </swiper>
       </div>
     </div>
   </section>
+  <!-- swipper ends here -->
 
-  <section class="category bg-slate-800 py-14">
+  <section class="category bg-slate-800 py-24">
     <div class="container mx-auto">
-      <div class="lg:col-span-7 text-center">
+      <div class="col-span-7">
         <!-- <h6 class="text-white uppercase">categories</h6> -->
-        <h2 class="text-4xl text-amber-100 uppercase">Award categories</h2>
-        <p class="mb-0 max-w-6xl text-lg mx-auto py-4 text-amber-100">
+        <h2 class="text-6xl font-bold text-amber-100">Award categories</h2>
+        <p class="max-w-6xl text-lg py-4 text-amber-100">
           Each category embodies a unique facet of musical brilliance, from emerging
           talents to collaborative innovations and societal impact. Explore these
           categories to celebrate the boundless creativity shaping our musical world.
         </p>
       </div>
     </div>
-    <div class="container mx-auto py-14">
-      <div class="grid grid-cols-4 gap-4">
+    <div class="container mx-auto py-14 sm:px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <div v-for="index in 12" :key="index" class="bg-slate-600 py-4 rounded-2xl">
           <div class="flex items-center px-8">
             <div class="flex-shrink-0">
