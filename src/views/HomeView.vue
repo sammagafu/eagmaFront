@@ -7,6 +7,7 @@ import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
 import imgUrl from "@/assets/img/artist.jpg";
 import avatar from "@/assets/img/avatar-1.jpg";
 import sliderImgUrl from "@/assets/img/banner/slider-1.jpg";
+import bibleImg from "@/assets/img/header/bible.jpg";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -71,48 +72,65 @@ const handleSlideChange = () => {
   </section>
 
   <!-- swipper starts here -->
-  <section id="nominees" class="container mx-auto py-48 px-4 md:px-0 md:py-48">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-      <div class="col-span-5">
-        <h2 class="text-6xl font-bold">Meet the Exceptional Nominees</h2>
-        <p class="py-8">
-          Step into the realm of musical excellence as we proudly present our
-          extraordinary nominees. These talented individuals and groups represent the
-          pinnacle of artistic achievement and dedication within the world of music.
-          Handpicked for their outstanding contributions, they embody innovation, passion,
-          and the spirit of musical creativity.
-        </p>
-      </div>
-      <div class="col-span-7">
-        <swiper
-          :slides-per-view="5"
-          :space-between="1"
-          :navigation="true"
-          :modules="modules"
-          @swiper="onSwiper"
-          @slideChange="onSlideChange"
-        >
-          <swiper-slide v-for="index in 10" :key="index">
-            <div class="relative">
-              <img class="rounded" :src="imgUrl" alt="Product Image" />
-              <div
-                class="absolute inset-0 flex flex-col bg-gradient-to-b from-transparent to-black rounded-3"
+  <section class="py-12 lg:py-48">
+    <div class="container px-4 mx-auto">
+      <div class="flex flex-wrap -mx-3">
+        <div class="relative w-full lg:w-1/4 mb-8 lg:mb-0 text-center lg:text-left">
+          <div class="max-w-md lg:max-w-xs lg:pr-16 mx-auto lg:ml-0 mb-6 lg:mb-0">
+            <h2
+              class="text-3xl md:text-4xl mb-4 font-bold font-heading wow animate__animated animate__fadeIn"
+              data-wow-delay=".3s"
+            >
+              Meet the
+              <span class="text-amber-300">Nominees</span>
+            </h2>
+            <p
+              class="text-xs md:text-base text-blueGray-400 leading-loose wow animate__animated animate__fadeIn"
+              data-wow-delay=".9s"
+            >
+              These talented individuals and groups represent the pinnacle of artistic
+              achievement and dedication within the world of music. Handpicked for their
+              outstanding contributions, they embody innovation, passion, and the spirit
+              of musical creativity.
+            </p>
+          </div>
+        </div>
+        <div class="w-full lg:w-3/4 flex flex-wrap">
+          <div class="relative w-full">
+            <div class="carausel-2-columns slick-carausel" id="carausel-2-columns-1">
+              <swiper
+                :slides-per-view="3"
+                :space-between="1"
+                :navigation="true"
+                :modules="modules"
+                :breakpoints="{ 390: { slidesPerView: 1 }, 1024: { slidesPerView: 3 } }"
+                @swiper="onSwiper"
+                @slideChange="onSlideChange"
               >
-                <div class="flex-grow flex flex-col justify-end p-3 text-center">
-                  <h4 class="text-white font-bold">Artist Name</h4>
-                  <p class="text-white text-opacity-85">Best Artist of the year</p>
-                  <div class="py-4 mx-auto">
-                    <a
-                      href="#"
-                      class="text-white bg-yellow-500 hover:bg-yellow-700 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900"
-                      >View Profile</a
+                <swiper-slide v-for="index in 10" :key="index">
+                  <div class="relative">
+                    <img class="rounded" :src="imgUrl" alt="Product Image" />
+                    <div
+                      class="absolute inset-0 flex flex-col bg-gradient-to-b from-transparent to-black rounded-3"
                     >
+                      <div class="flex-grow flex flex-col justify-end p-3 text-center">
+                        <h4 class="text-white font-bold">Artist Name</h4>
+                        <p class="text-white text-opacity-85">Best Artist of the year</p>
+                        <div class="py-4 mx-auto">
+                          <a
+                            href="#"
+                            class="text-white bg-yellow-500 hover:bg-yellow-700 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900"
+                            >View Profile</a
+                          >
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
+                </swiper-slide>
+              </swiper>
             </div>
-          </swiper-slide>
-        </swiper>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -122,7 +140,7 @@ const handleSlideChange = () => {
     <div class="container mx-auto">
       <div class="col-span-7">
         <!-- <h6 class="text-white uppercase">categories</h6> -->
-        <h2 class="text-6xl font-bold text-amber-100">Award categories</h2>
+        <h2 class="text-6xl font-bold text-amber-100 pb-12">Award categories</h2>
         <p class="max-w-6xl text-lg py-4 text-amber-100">
           Each category embodies a unique facet of musical brilliance, from emerging
           talents to collaborative innovations and societal impact. Explore these
@@ -189,6 +207,126 @@ const handleSlideChange = () => {
     </div>
   </section>
 
+  <section id="home" class="relative overflow-hidden mt-48">
+    <div class="px-4 md:px-10">
+      <div
+        class="rounded-2xl overflow-hidden bg-no-repeat bg-cover bg-center bg-[url('../assets/img/header/bible.jpg')]"
+      >
+        <div class="bg-black/60 rounded-2xl">
+          <div class="container mx-auto">
+            <div class="p-6 relative">
+              <div class="flex h-full items-center justify-center py-36">
+                <div class="text-center max-w-3xl mx-auto relative">
+                  <span
+                    class="py-1 px-3 rounded-md text-sm font-medium uppercase tracking-wider text-white bg-white/10"
+                    >AI knowledge hub</span
+                  >
+                  <h1 class="md:text-5xl/snug text-3xl font-medium text-white mt-10">
+                    Build Quickly, Earn More
+                  </h1>
+                  <p class="w-3/4 mx-auto text-base font-normal text-white/80 mt-5">
+                    Leverage customer data to create exceptional and robust product
+                    experiences that drive conversions.
+                  </p>
+
+                  <div class="flex justify-center mt-10">
+                    <a
+                      href="#"
+                      class="inline-flex items-center justify-center gap-2 text-base py-2 px-8 rounded-md text-white bg-primary hover:bg-primary-700 transition-all duration-700"
+                      >Read More
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        data-lucide="move-right"
+                        class="lucide lucide-move-right h-6 w-6"
+                      >
+                        <path d="M18 8L22 12L18 16"></path>
+                        <path d="M2 12H22"></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- flex End -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Container End -->
+  </section>
+
+  <section
+    class="py-20 border-b border-gray-200 dark:border-foreground dark:bg-background"
+  >
+    <div class="container mx-auto lg:p-0 p-5">
+      <div
+        class="flex lg:flex-row flex-col lg:text-left text-center flex-wrap items-center justify-between mb-12"
+      >
+        <div class="lg:mb-0 mb-4 aos-init aos-animate" data-aos="fade-up">
+          <h2 class="text-2xl lg:text-3xl font-medium capitalize mb-2 text-gray-600">
+            Road to EAGMA
+          </h2>
+          <h6 class="text-sm lg:text-base text-black font-normal">
+            A selection of listing verified for quality
+          </h6>
+        </div>
+        <div data-aos="fade-up" class="aos-init aos-animate">
+          <a
+            href="/listing-list.html"
+            class="text-gray-500 dark:text-gray-400 hover:text-blue-500 flex items-center"
+          >
+            Explore More
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              class="w-5 ml-3"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+        <a
+          href="/event-listing-details-page.html"
+          data-aos="fade-up"
+          data-aos-duration="800"
+          class="aos-init aos-animate"
+          v-for="index in 6"
+          :key="index"
+        >
+          <div class="relative overflow-hidden group rounded-lg group">
+            <img
+              class="w-full h-[277px] object-cover rounded-lg transition-all group-hover:scale-105"
+              src="../assets/img/road/concert-2.jpg"
+              alt=""
+            />
+            <div
+              class="absolute bottom-0 top-1/2 flex flex-col justify-end left-0 pb-5 pl-5 rounded-b-lg pt-2 card-linear-gradient w-full"
+            >
+              <h5 class="text-2xl font-medium mb-1 text-white">Apartment</h5>
+              <p class="text-base font-normal text-gray-100">15+ Apartment available</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
   <!-- swipper ends here -->
 </template>
 
