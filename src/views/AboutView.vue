@@ -14,33 +14,36 @@
         <div
           class="lg:pr-[60px] rtl:lg:pr-0 rtl:lg:pl-[60px] xl:pr-[100px] rtl:xl:pr-0 rtl:xl:pl-[100px]"
         >
-          <h4 class="text-black uppercase text-[15px] md:text-[17px] font-bold mb-[15px]">
+          <h4 class="text-black uppercase text-[12px] md:text-[15px] font-bold mb-[15px]">
             Our Goal
           </h4>
           <h2
-            class="text-black text-[14px] md:text-[16px] lg:text-[20px] xl:text-[24px] leading-[1.2] mb-[15px] md:mb-[30px]"
+            class="text-black font-semibold text-[14px] md:text-[20px] lg:text-[26px] xl:text-[32px] leading-[1.2] mb-[15px] md:mb-[30px]"
           >
             This platform aims to acknowledge, motivate, reward, and cultivate the talents
             of artists, particularly gospel singers, in order to reshape and impact
             society, with a focus on Tanzania and East Africa as a whole.
           </h2>
-          <p>
+          <p class="text-[12px] md:text-[18px] lg:text-[24px] xl:text-[30px">
             Promoting the heritage of East African Musical Talents by increasing the level
             of excellence of musical talent acquisition and uniting the diversity in the
             talents as a common goal in one platform that shares experiences, values and
             culture.
           </p>
         </div>
-        <div>
+        <div
+          class="hidden xl:block group/hw relative overflow-hidden hway hway-active hway-active hway-active hway-active hway-active hway-active hway-active hway-active hway-active"
+        >
+          <div
+            class="absolute top-0 left-0 bg-[#C2922E] h-[55%] w-full group-[.hway-active]/hw:w-0 transition-all duration-[.5s]"
+          ></div>
+          <div
+            class="absolute bottom-0 right-0 bg-[#C2922E] h-[55%] w-full group-[.hway-active]/hw:w-0 transition-all duration-[.5s]"
+          ></div>
           <img
-            alt="Page Banner"
-            loading="lazy"
-            width="656"
-            height="526"
-            decoding="async"
-            data-nimg="1"
-            src="../assets/img/artist.jpg"
-            style="color: transparent"
+            class="w-full"
+            src="https://raw.githubusercontent.com/uiaextend/jconsultiva/main/about-img-1.png"
+            alt=""
           />
         </div>
       </div>
@@ -57,7 +60,7 @@
             class="p-[50px] bg-[#14212b] relative z-[1] rounded-[10px] overflow-hidden col:p-[20px] drop-shadow"
           >
             <div>
-              <h2 class="text-amber-500 text-[34px] mb-[20px] font-semibold">
+              <h2 class="text-[#C2922E] text-[34px] mb-[20px] font-semibold">
                 Our Mission
               </h2>
               <p class="text-amber-100 text-[18px] mb-[20px]">
@@ -91,7 +94,7 @@
             class="p-[50px] bg-[#14212b] relative z-[1] rounded-[10px] overflow-hidden col:p-[20px] drop-shadow"
           >
             <div class="wpo-vission-text">
-              <h2 class="text-amber-500 text-[34px] mb-[20px] font-semibold">
+              <h2 class="text-[#C2922E] text-[34px] mb-[20px] font-semibold">
                 Our Vision
               </h2>
               <p class="text-amber-100 text-[18px] mb-[20px]">
@@ -119,6 +122,7 @@
     </div>
   </section>
 
+  <!-- counter -->
   <div class="py-[150px]">
     <div class="max-w-[1350px] mx-auto px-[15px]">
       <div data-scroll="[data-scroll-item]" class="">
@@ -143,7 +147,7 @@
                   <div class="flex justify-center">
                     <div class="">
                       <div
-                        class="flex text-[#101010] text-[100px] leading-[100px] font-bold font-['Space_Grotesk']"
+                        class="flex text-[#C2922E] text-[100px] leading-[100px] font-bold font-['Space_Grotesk']"
                       >
                         <div class="odometer odometer-auto-theme" data-v="46">
                           <div class="odometer-inside">
@@ -170,13 +174,15 @@
                         </div>
                         <div class="">k</div>
                       </div>
-                      <div class="text-[28px] leading-[28px]">Project Completed</div>
+                      <div class="text-[18px] leading-[28px] text-center">
+                        Project Completed
+                      </div>
                     </div>
                   </div>
                   <div class="flex justify-center">
                     <div class="">
                       <div
-                        class="flex text-[#101010] text-[100px] leading-[100px] font-bold font-['Space_Grotesk']"
+                        class="flex text-[#C2922E] text-[100px] leading-[100px] font-bold font-['Space_Grotesk']"
                       >
                         <div class="odometer odometer-auto-theme" data-v="3">
                           <div class="odometer-inside">
@@ -194,7 +200,9 @@
                         </div>
                         <div class="">k</div>
                       </div>
-                      <div class="text-[28px] leading-[28px]">Happy customers</div>
+                      <div class="text-[18px] leading-[28px] text-center">
+                        Happy customers
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -209,7 +217,7 @@
                   <div class="flex justify-center">
                     <div class="">
                       <div
-                        class="flex text-[#101010] text-[100px] leading-[100px] font-bold font-['Space_Grotesk']"
+                        class="flex text-[#C2922E] text-[100px] leading-[100px] font-bold font-['Space_Grotesk']"
                       >
                         <div class="odometer odometer-auto-theme" data-v="26">
                           <div class="odometer-inside">
@@ -236,13 +244,15 @@
                         </div>
                         <div class="">+</div>
                       </div>
-                      <div class="text-[28px] leading-[28px]">Years Experiences</div>
+                      <div class="text-[18px] leading-[28px] text-center">
+                        Years Experiences
+                      </div>
                     </div>
                   </div>
                   <div class="flex justify-center">
                     <div class="">
                       <div
-                        class="flex text-[#101010] text-[100px] leading-[100px] font-bold font-['Space_Grotesk']"
+                        class="flex text-[#C2922E] text-[100px] leading-[100px] font-bold font-['Space_Grotesk']"
                       >
                         <div class="odometer odometer-auto-theme" data-v="24">
                           <div class="odometer-inside">
@@ -269,7 +279,9 @@
                         </div>
                         <div class="">+</div>
                       </div>
-                      <div class="text-[28px] leading-[28px]">Awards Achievement</div>
+                      <div class="text-[18px] leading-[28px] text-center">
+                        Awards Achievement
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -281,12 +293,14 @@
     </div>
   </div>
 
+  <!-- counter ends here -->
+
   <!-- comittee -->
   <div class="container mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-[40px]">
-      <div class="group relative">
+      <div class="group relative" v-for="index in 4" :key="index">
         <div
-          class="absolute top-[20px] right-0 bottom-0 left-[20px] border-[1px] border-amber-500"
+          class="absolute top-[20px] right-0 bottom-0 left-[20px] border-[1px] bordxt-[#C2922E]"
         ></div>
         <div class="relative pe-[20px] pb-[20px]">
           <div data-scroll="[data-scroll-item]" class="">
@@ -337,10 +351,10 @@
           class="absolute right-0 bottom-0 h-[100px] w-[200px] flex items-center justify-center"
         >
           <div
-            class="absolute top-0 right-0 bottom-0 left-0 origin-right rounded-tl-[230px] border-[1px] border-amber-500 bg-amber-500 bg-opacity-25 opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100 transition-all duration-[.3s] delay-[.2s] group-hover:delay-0"
+            class="absolute top-0 right-0 bottom-0 left-0 origin-right rounded-tl-[230px] border-[1px] border-[#C2922E] bg-[#C2922E] bg-opacity-25 opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100 transition-all duration-[.3s] delay-[.2s] group-hover:delay-0"
           ></div>
           <div
-            class="absolute top-0 right-0 bottom-0 left-0 origin-right rounded-tl-[230px] bg-amber-500 opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100 transition-all duration-[.3s] delay-[.1s] group-hover:delay-[.1s]"
+            class="absolute top-0 right-0 bottom-0 left-0 origin-right rounded-tl-[230px] bg-[#C2922E] opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100 transition-all duration-[.3s] delay-[.1s] group-hover:delay-[.1s]"
           ></div>
           <a
             href="#"
@@ -348,7 +362,7 @@
           >
             <div class="relative">
               <div
-                class="absolute top-0 right-0 bottom-0 left-0 text-[#101010] origin-top scale-y-0 group-hover/btn:scale-y-100 transition-all duration-[.3s]"
+                class="absolute top-0 right-0 bottom-0 left-0 text-[#C2922E] origin-top scale-y-0 group-hover/btn:scale-y-100 transition-all duration-[.3s]"
               >
                 VIEW MORE
               </div>

@@ -53,7 +53,14 @@
             <a
               href="#"
               class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-              >Road to EAGMA</a
+              >Photos & Videos</a
+            >
+          </li>
+          <li>
+            <router-link
+              :to="{ name: 'roadtoeagma' }"
+              class="block py-2 px-3 text-yellow-400 rounded hover:bg-yellow-700 md:hover:bg-transparent md:border-0 md:hover:text-yellow-700 md:p-0 dark:text-yellow-400 md:dark:hover:text-yellow-700 dark:hover:bg-yellow-700 dark:hover:text-white md:dark:hover:bg-transparent"
+              >Road To EAGMA</router-link
             >
           </li>
           <li>
