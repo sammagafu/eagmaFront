@@ -3,7 +3,6 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import PrimeVue from 'primevue/config';
 import { createPinia } from 'pinia'
-import vWow from 'v-wow'
 import App from './App.vue'
 import router from './router'
 

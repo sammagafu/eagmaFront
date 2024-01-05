@@ -74,7 +74,7 @@ const handleSlideChange = () => {
   </section>
 
   <!-- swipper starts here -->
-  <section class="py-12 lg:py-48 fadeInUp" v-wow data-wow-delay="0.2s" data-wow-duration="2s">
+  <section class="py-12 lg:py-48">
     <div class="container px-4 mx-auto">
       <div class="flex flex-wrap -mx-3">
         <div class="relative w-full lg:w-1/4 mb-8 lg:mb-0 text-center lg:text-left">
