@@ -10,7 +10,8 @@
                   { "scrollTrigger": { "trigger": "[data-scroll-item]" } }
                 </div>
                 <div data-scroll-item="" class="group c-active">
-                  <div class="relative bg-[#555]">
+                  <router-link :to="{name:'roaddetail'}">
+                    <div class="relative bg-[#555]">
                     <img
                       class="w-full scale-y-0 group-[.c-active]:scale-y-100 group-[.c-active]:delay-[.5s] delay-0 transition-all duration-[.3s]"
                       src="../assets/img/banner/slider-1.jpg"
@@ -61,6 +62,7 @@
                       ></div>
                     </div>
                   </div>
+                  </router-link>
                 </div>
               </div>
               <div class="mt-[35px] mb-[10px] font-semibold">14 Mar, 2023</div>
@@ -85,7 +87,7 @@
                 </div>
               </div>
               <div class="flex justify-start">
-                <a href="#" class="group flex items-center gap-[10px]">
+                <router-link :to="{name:'roaddetail'}" class="group flex items-center gap-[10px]">
                   <div
                     class="relative text-[#101010] text-[16px] leading-[1] font-['Space_Grotesk'] font-bold"
                   >
@@ -120,7 +122,7 @@
                       />
                     </div>
                   </div>
-                </a>
+                </router-link>
               </div>
             </div>
           </div>
@@ -185,182 +187,49 @@
             </div>
           </form>
           <div class="py-[30px]"></div>
-          <div class="bg-[#f4f3f1] pt-[20px] pb-[50px] px-[30px]">
-            <div
-              class="text-[#101010] text-[26px] leading-[1.3] font-['Space_Grotesk'] font-bold mt-[15px] mb-[30px]"
-            >
-              Popular Category
-            </div>
-            <div data-scroll="[data-scroll-item]" class="">
-              <div data-scroll-cog="" class="hidden">
-                { "scrollTrigger": { "trigger": "[data-scroll-item]" } }
-              </div>
-              <div data-scroll-item="" class="group">
-                <div class="flex gap-[5px]">
-                  <div class="relative">
-                    <div
-                      class="text-[#f68a0a] absolute top-0 right-0 bottom-0 left-0 origin-left scale-x-0 group-[.c-active]:scale-x-100 group-[.c-active]:delay-0 delay-[.5s] transition-all duration-[.3s]"
-                    >
-                      01/
-                    </div>
-                    <div
-                      class="origin-right scale-x-100 group-[.c-active]:scale-x-0 group-[.c-active]:delay-0 delay-[.5s] transition-all duration-[.3s]"
-                    >
-                      01/
-                    </div>
-                  </div>
-                  <div class="relative">
-                    <div
-                      class="absolute top-0 right-0 bottom-0 left-0 origin-left scale-x-0 group-[.c-active]:scale-x-100 group-[.c-active]:delay-0 delay-[.5s] transition-all duration-[.3s]"
-                    >
-                      Architecture Design
-                    </div>
-                    <div
-                      class="text-[#f68a0a] origin-right scale-x-100 group-[.c-active]:scale-x-0 group-[.c-active]:delay-0 delay-[.5s] transition-all duration-[.3s]"
-                    >
-                      Architecture Design
-                    </div>
-                  </div>
-                </div>
-                <div class="border-t-[1px] border-t-[#dee2e6] my-[15px]"></div>
-                <div class="flex gap-[5px]">
-                  <div class="relative">
-                    <div
-                      class="text-[#f68a0a] absolute top-0 right-0 bottom-0 left-0 origin-left scale-x-0 group-[.c-active]:scale-x-100 group-[.c-active]:delay-[.1s] delay-[.4s] transition-all duration-[.3s]"
-                    >
-                      02/
-                    </div>
-                    <div
-                      class="origin-right scale-x-100 group-[.c-active]:scale-x-0 group-[.c-active]:delay-[.1s] delay-[.4s] transition-all duration-[.3s]"
-                    >
-                      02/
-                    </div>
-                  </div>
-                  <div class="relative">
-                    <div
-                      class="absolute top-0 right-0 bottom-0 left-0 origin-left scale-x-0 group-[.c-active]:scale-x-100 group-[.c-active]:delay-[.1s] delay-[.4s] transition-all duration-[.3s]"
-                    >
-                      Interior Design
-                    </div>
-                    <div
-                      class="text-[#f68a0a] origin-right scale-x-100 group-[.c-active]:scale-x-0 group-[.c-active]:delay-[.1s] delay-[.4s] transition-all duration-[.3s]"
-                    >
-                      Interior Design
-                    </div>
-                  </div>
-                </div>
-                <div class="border-t-[1px] border-t-[#dee2e6] my-[15px]"></div>
-                <div class="flex gap-[5px]">
-                  <div class="relative">
-                    <div
-                      class="text-[#f68a0a] absolute top-0 right-0 bottom-0 left-0 origin-left scale-x-0 group-[.c-active]:scale-x-100 group-[.c-active]:delay-[.2s] delay-[.3s] transition-all duration-[.3s]"
-                    >
-                      03/
-                    </div>
-                    <div
-                      class="origin-right scale-x-100 group-[.c-active]:scale-x-0 group-[.c-active]:delay-[.2s] delay-[.3s] transition-all duration-[.3s]"
-                    >
-                      03/
-                    </div>
-                  </div>
-                  <div class="relative">
-                    <div
-                      class="absolute top-0 right-0 bottom-0 left-0 origin-left scale-x-0 group-[.c-active]:scale-x-100 group-[.c-active]:delay-[.2s] delay-[.3s] transition-all duration-[.3s]"
-                    >
-                      Luxury Interior Design
-                    </div>
-                    <div
-                      class="text-[#f68a0a] origin-right scale-x-100 group-[.c-active]:scale-x-0 group-[.c-active]:delay-[.2s] delay-[.3s] transition-all duration-[.3s]"
-                    >
-                      Luxury Interior Design
-                    </div>
-                  </div>
-                </div>
-                <div class="border-t-[1px] border-t-[#dee2e6] my-[15px]"></div>
-                <div class="flex gap-[5px]">
-                  <div class="relative">
-                    <div
-                      class="text-[#f68a0a] absolute top-0 right-0 bottom-0 left-0 origin-left scale-x-0 group-[.c-active]:scale-x-100 group-[.c-active]:delay-[.3s] delay-[.2s] transition-all duration-[.3s]"
-                    >
-                      04/
-                    </div>
-                    <div
-                      class="origin-right scale-x-100 group-[.c-active]:scale-x-0 group-[.c-active]:delay-[.3s] delay-[.2s] transition-all duration-[.3s]"
-                    >
-                      04/
-                    </div>
-                  </div>
-                  <div class="relative">
-                    <div
-                      class="absolute top-0 right-0 bottom-0 left-0 origin-left scale-x-0 group-[.c-active]:scale-x-100 group-[.c-active]:delay-[.3s] delay-[.2s] transition-all duration-[.3s]"
-                    >
-                      Office Interior Design
-                    </div>
-                    <div
-                      class="text-[#f68a0a] origin-right scale-x-100 group-[.c-active]:scale-x-0 group-[.c-active]:delay-[.3s] delay-[.2s] transition-all duration-[.3s]"
-                    >
-                      Office Interior Design
-                    </div>
-                  </div>
-                </div>
-                <div class="border-t-[1px] border-t-[#dee2e6] my-[15px]"></div>
-                <div class="flex gap-[5px]">
-                  <div class="relative">
-                    <div
-                      class="text-[#f68a0a] absolute top-0 right-0 bottom-0 left-0 origin-left scale-x-0 group-[.c-active]:scale-x-100 group-[.c-active]:delay-[.4s] delay-[.1s] transition-all duration-[.3s]"
-                    >
-                      05/
-                    </div>
-                    <div
-                      class="origin-right scale-x-100 group-[.c-active]:scale-x-0 group-[.c-active]:delay-[.4s] delay-[.1s] transition-all duration-[.3s]"
-                    >
-                      05/
-                    </div>
-                  </div>
-                  <div class="relative">
-                    <div
-                      class="absolute top-0 right-0 bottom-0 left-0 origin-left scale-x-0 group-[.c-active]:scale-x-100 group-[.c-active]:delay-[.4s] delay-[.1s] transition-all duration-[.3s]"
-                    >
-                      Home Decoration
-                    </div>
-                    <div
-                      class="text-[#f68a0a] origin-right scale-x-100 group-[.c-active]:scale-x-0 group-[.c-active]:delay-[.4s] delay-[.1s] transition-all duration-[.3s]"
-                    >
-                      Home Decoration
-                    </div>
-                  </div>
-                </div>
-                <div class="border-t-[1px] border-t-[#dee2e6] my-[15px]"></div>
-                <div class="flex gap-[5px]">
-                  <div class="relative">
-                    <div
-                      class="text-[#f68a0a] absolute top-0 right-0 bottom-0 left-0 origin-left scale-x-0 group-[.c-active]:scale-x-100 group-[.c-active]:delay-[.5s] delay-0 transition-all duration-[.3s]"
-                    >
-                      06/
-                    </div>
-                    <div
-                      class="origin-right scale-x-100 group-[.c-active]:scale-x-0 group-[.c-active]:delay-[.5s] delay-0 transition-all duration-[.3s]"
-                    >
-                      06/
-                    </div>
-                  </div>
-                  <div class="relative">
-                    <div
-                      class="absolute top-0 right-0 bottom-0 left-0 origin-left scale-x-0 group-[.c-active]:scale-x-100 group-[.c-active]:delay-[.5s] delay-0 transition-all duration-[.3s]"
-                    >
-                      House Exterior Design
-                    </div>
-                    <div
-                      class="text-[#f68a0a] origin-right scale-x-100 group-[.c-active]:scale-x-0 group-[.c-active]:delay-[.5s] delay-0 transition-all duration-[.3s]"
-                    >
-                      House Exterior Design
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="py-[30px]"></div>
+          <div class="bg-white p-[30px] mb-[60px]">
+								<div class="text-[#171a1d] text-[26px] leading-[26px] font-medium mb-[40px]">Categories</div>
+								<a href="#" class="flex items-center justify-between hover:text-[#ff5100]">
+									<div class="flex items-center">
+										<div class="me-[10px]"><i class="pi pi-angle-double-right"></i></div>
+										<div class="">Company Development</div>
+									</div>
+									<div class="">(10)</div>
+								</a>
+								<div class="border-t my-[20px]"></div>
+								<a href="#" class="flex items-center justify-between hover:text-[#ff5100]">
+									<div class="flex items-center">
+										<div class="me-[10px]"><i class="pi pi-angle-double-right"></i></div>
+										<div class="">Business &amp; Strategy</div>
+									</div>
+									<div class="">(05)</div>
+								</a>
+								<div class="border-t my-[20px]"></div>
+								<a href="#" class="flex items-center justify-between hover:text-[#ff5100]">
+									<div class="flex items-center">
+										<div class="me-[10px]"><i class="pi pi-angle-double-right"></i></div>
+										<div class="">IT Management</div>
+									</div>
+									<div class="">(32)</div>
+								</a>
+								<div class="border-t my-[20px]"></div>
+								<a href="#" class="flex items-center justify-between hover:text-[#ff5100]">
+									<div class="flex items-center">
+										<div class="me-[10px]"><i class="pi pi-angle-double-right"></i></div>
+										<div class="">Financial Consulting</div>
+									</div>
+									<div class="">(14)</div>
+								</a>
+								<div class="border-t my-[20px]"></div>
+								<a href="#" class="flex items-center justify-between hover:text-[#ff5100]">
+									<div class="flex items-center">
+										<div class="me-[10px]"><i class="pi pi-angle-double-right"></i></div>
+										<div class="">Business Consulting</div>
+									</div>
+									<div class="">(27)</div>
+								</a>
+							</div>
+          <!-- <div class="py-[30px]"></div>
           <div class="bg-[#f4f3f1] pt-[10px] pb-[50px] px-[30px]">
             <div
               class="text-[#101010] text-[26px] leading-[1.3] font-['Space_Grotesk'] font-bold mt-[15px] mb-[30px]"
@@ -693,7 +562,7 @@
                 </div>
               </a>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

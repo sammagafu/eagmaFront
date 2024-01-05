@@ -15,7 +15,8 @@
     "swiper": "^11.0.5",
     "v-wow": "github:guisoares2011/vue-wow",
     "vue": "^3.3.10",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "vue-writer": "^1.2.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.1",

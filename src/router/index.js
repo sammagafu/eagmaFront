@@ -19,6 +19,11 @@ const router = createRouter({
       name: 'roadtoeagma',
       component: () => import('../views/RoadToEagma.vue')
     },
+    {
+      path: '/road-to-eagma/details',
+      name: 'roaddetail',
+      component: () => import('../views/RoadToEagmaDetail.vue')
+    },
   ]
 })
 

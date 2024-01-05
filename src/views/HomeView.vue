@@ -2,13 +2,14 @@
 import { ref, reactive, onMounted, computed } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
+import VueWriter from "vue-writer";
+
 
 // images
 import imgUrl from "@/assets/img/artist.jpg";
-import avatar from "@/assets/img/avatar-1.jpg";
 import sliderImgUrl from "@/assets/img/banner/slider-1.jpg";
-import bibleImg from "@/assets/img/header/bible.jpg";
 
+// css
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -16,6 +17,9 @@ const modules = [Autoplay, Pagination, Navigation, EffectFade];
 
 const onSwiper = ref(null);
 const onSlideChange = ref(null);
+const textSlider =  ref([
+  'Celebrating','Nurturing','Empowering'
+])
 
 const handleSwiper = (swiperInstance) => {
   onSwiper.value = swiperInstance;
@@ -29,19 +33,17 @@ const handleSlideChange = () => {
 <template>
   <!-- Jumbotron -->
   <section
-    class="py-36 md:py-80 w-full table relative bg-slider-img bg-center bg-cover"
+    class="py-36 lg:py-48 w-full table relative bg-slider-img bg-center bg-cover"
     :style="{ 'background-image': `url(${sliderImgUrl})` }"
     style="z-index: 0"
   >
     <div class="absolute inset-0 bg-black opacity-70"></div>
     <div class="container mx-auto relative">
       <div class="grid grid-cols-1 text-center">
-        <h4
-          class="text-amber-200 lg:text-5xl text-4xl lg:leading-normal leading-normal font-bold mb-7 position-relative"
-        >
-          Celebrating, Nurturing, and Empowering <br />
-          Musical Talents
-        </h4>
+        <div class="text-[#C2922E] lg:text-5xl text-4xl lg:leading-normal leading-normal font-bold mb-7 position-relative">
+          <VueWriter :array="textSlider" :eraseSpeed="20" :typeSpeed="100" :delay="1000" /> Musical Talents
+        </div>
+
         <p class="text-white mb-0 max-w-6xl text-lg mx-auto">
           Welcome to our vibrant platform dedicated to celebrating and elevating the
           exceptional musical talent of East Africa. Through our innovative academy, we're
@@ -56,7 +58,7 @@ const handleSlideChange = () => {
       <a href="#nominees">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-8 w-8 text-yellow-400 animate-bounce"
+          class="h-8 w-8 text-[#C2922E] animate-bounce"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -72,7 +74,7 @@ const handleSlideChange = () => {
   </section>
 
   <!-- swipper starts here -->
-  <section class="py-12 lg:py-48">
+  <section class="py-12 lg:py-48 fadeInUp" v-wow data-wow-delay="0.2s" data-wow-duration="2s">
     <div class="container px-4 mx-auto">
       <div class="flex flex-wrap -mx-3">
         <div class="relative w-full lg:w-1/4 mb-8 lg:mb-0 text-center lg:text-left">
@@ -82,7 +84,7 @@ const handleSlideChange = () => {
               data-wow-delay=".3s"
             >
               Meet the
-              <span class="text-amber-300">Nominees</span>
+              <span class="text-[#C2922E]">Nominees</span>
             </h2>
             <p
               class="text-xs md:text-base text-blueGray-400 leading-loose wow animate__animated animate__fadeIn"
@@ -119,7 +121,7 @@ const handleSlideChange = () => {
                         <div class="py-4 mx-auto">
                           <a
                             href="#"
-                            class="text-white bg-yellow-500 hover:bg-yellow-700 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900"
+                            class="text-white bg-[#C2922E] hover:bg-yellow-700 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900"
                             >View Profile</a
                           >
                         </div>
@@ -140,8 +142,8 @@ const handleSlideChange = () => {
     <div class="container mx-auto">
       <div class="col-span-7">
         <!-- <h6 class="text-white uppercase">categories</h6> -->
-        <h2 class="text-6xl font-bold text-amber-100 pb-12">Award categories</h2>
-        <p class="max-w-6xl text-lg py-4 text-amber-100">
+        <h2 class="text-6xl font-bold text-[#C2922E] pb-12">Award categories</h2>
+        <p class="max-w-6xl text-lg py-4 text-[#C2922E]">
           Each category embodies a unique facet of musical brilliance, from emerging
           talents to collaborative innovations and societal impact. Explore these
           categories to celebrate the boundless creativity shaping our musical world.
@@ -150,7 +152,7 @@ const handleSlideChange = () => {
     </div>
     <div class="container mx-auto py-14 sm:px-4">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div v-for="index in 12" :key="index" class="bg-slate-600 py-4 rounded-2xl">
+        <div v-for="index in 12" :key="index" class="bg-[#C2922E] py-4 rounded-2xl drop-shadow-md">
           <div class="flex items-center px-8">
             <div class="flex-shrink-0">
               <!-- <img class="w-14 h-14 rounded-full" :src="avatar" alt="Neil image" /> -->
@@ -196,7 +198,7 @@ const handleSlideChange = () => {
               </svg>
             </div>
             <div class="flex-1 min-w-0 ms-4">
-              <p class="text-xl font-medium text-amber-100 dark:text-amber-100">
+              <p class="text-xl font-medium text-slate-900 dark:text-slate-600">
                 Music Category Name
               </p>
             </div>
@@ -219,21 +221,20 @@ const handleSlideChange = () => {
                 <div class="text-center max-w-3xl mx-auto relative">
                   <span
                     class="py-1 px-3 rounded-md text-sm font-medium uppercase tracking-wider text-white bg-white/10"
-                    >AI knowledge hub</span
+                    >knowledge hub</span
                   >
                   <h1 class="md:text-5xl/snug text-3xl font-medium text-white mt-10">
-                    Build Quickly, Earn More
+                    Bible Verse Challange
                   </h1>
                   <p class="w-3/4 mx-auto text-base font-normal text-white/80 mt-5">
-                    Leverage customer data to create exceptional and robust product
-                    experiences that drive conversions.
+                    challange others to this wonderful game and earn price in every week leaderboard
                   </p>
 
                   <div class="flex justify-center mt-10">
                     <a
                       href="#"
                       class="inline-flex items-center justify-center gap-2 text-base py-2 px-8 rounded-md text-white bg-primary hover:bg-primary-700 transition-all duration-700"
-                      >Read More
+                      >Play Now
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -317,10 +318,13 @@ const handleSlideChange = () => {
               alt=""
             />
             <div
-              class="absolute bottom-0 top-1/2 flex flex-col justify-end left-0 pb-5 pl-5 rounded-b-lg pt-2 card-linear-gradient w-full"
+              class="absolute bottom-0 top-1/2 flex flex-col justify-end left-0 p-5 rounded-b-lg pt-2 card-linear-gradient w-full"
             >
-              <h5 class="text-2xl font-medium mb-1 text-white">Apartment</h5>
-              <p class="text-base font-normal text-gray-100">15+ Apartment available</p>
+              <h5 class="text-2xl font-medium mb-1 text-white">News Title Goes Here</h5>
+              <div class="flex flex-row justify-between">
+                <p class="text-base font-normal text-gray-100">News Category</p>
+                <p class="text-base font-normal text-gray-100">1 Jan 2024</p>
+                </div>
             </div>
           </div>
         </a>
@@ -336,5 +340,16 @@ const handleSlideChange = () => {
 .swiper-slide {
   transition: transform 0.3s ease;
   /* Example transition */
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    background-color: white;
+    background-color: rgba(194,146,46, 0.8);
+    right:10px;
+    padding: 30px;
+    color: #000 !important;
+    fill: black !important;
+    stroke: black !important;
 }
 </style>
