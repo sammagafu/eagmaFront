@@ -37,7 +37,7 @@ const handleSlideChange = () => {
     :style="{ 'background-image': `url(${sliderImgUrl})` }"
     style="z-index: 0"
   >
-    <div class="absolute inset-0 bg-black opacity-70"></div>
+    <div class="absolute inset-0 bg-black opacity-50"></div>
     <div class="container mx-auto relative">
       <div class="grid grid-cols-1 text-center">
         <div class="text-[#C2922E] lg:text-5xl text-4xl lg:leading-normal leading-normal font-bold mb-7 position-relative">
