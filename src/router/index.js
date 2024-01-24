@@ -20,8 +20,8 @@ const router = createRouter({
       component: () => import('../views/RoadToEagma.vue')
     },
     {
-      path: '/road-to-eagma/details',
-      name: 'roaddetail',
+      path: '/road-to-eagma/:slug',
+      name: 'blog-post',
       component: () => import('../views/RoadToEagmaDetail.vue')
     },
   ]

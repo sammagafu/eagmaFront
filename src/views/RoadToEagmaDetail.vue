@@ -24,3 +24,34 @@
 				</div>
             </div>
 </template>
+
+<script setup>
+import { ref, reactive, onMounted, computed } from "vue";
+import { useRoute } from 'vue-router';
+import instance from "@/service";
+
+const currentParams = ref({});
+const route = useRoute();
+const blog = ref([])
+
+
+
+
+
+const getNews = function(){
+  instance.get(`blog/latest/${route.params.slug}`)
+  .then(async(response) => {
+    console.log(response.data);
+    blog.value = await response.data;
+  })
+  .catch(error => {
+    console.log(error);
+  });
+};
+
+onMounted(() => {
+  getNews()
+})
+
+
+</script>

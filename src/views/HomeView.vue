@@ -3,6 +3,7 @@ import { ref, reactive, onMounted, computed } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
 import VueWriter from "vue-writer";
+import instance from "@/service";
 
 
 // images
@@ -25,9 +26,44 @@ const handleSwiper = (swiperInstance) => {
   onSwiper.value = swiperInstance;
 };
 
+const award = ref()
+const categories = ref([])
+const blog = ref([])
+
 const handleSlideChange = () => {
   console.log("slide change");
 };
+
+const getCategories = function(){
+  instance.get("awards/active")
+  .then(async(response) => {
+    console.log(response.data);
+    award.value = await response.data;
+    categories.value = response.data.map(award => award.categories).flat();
+  })
+  .catch(error => {
+    console.log(error);
+  });
+};
+
+const getNews = function(){
+  instance.get("blog/latest/")
+  .then(async(response) => {
+    console.log(response.data);
+    blog.value = await response.data;
+    // categories.value = response.data.map(award => award.categories).flat();
+  })
+  .catch(error => {
+    console.log(error);
+  });
+};
+
+onMounted(() => {
+  getCategories()
+  getNews()
+})
+
+
 </script>
 
 <template>
@@ -152,7 +188,7 @@ const handleSlideChange = () => {
     </div>
     <div class="container mx-auto py-14 sm:px-4">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div v-for="index in 12" :key="index" class="bg-[#C2922E] py-4 rounded-2xl drop-shadow-md">
+        <div v-for="(award,index) in categories" :key="index" class="bg-[#C2922E] py-4 rounded-2xl drop-shadow-md">
           <div class="flex items-center px-8">
             <div class="flex-shrink-0">
               <!-- <img class="w-14 h-14 rounded-full" :src="avatar" alt="Neil image" /> -->
@@ -199,7 +235,7 @@ const handleSlideChange = () => {
             </div>
             <div class="flex-1 min-w-0 ms-4">
               <p class="text-xl font-medium text-slate-900 dark:text-slate-600">
-                Music Category Name
+               {{award.name}}
               </p>
             </div>
             <!--  -->
@@ -280,10 +316,7 @@ const handleSlideChange = () => {
           </h6>
         </div>
         <div data-aos="fade-up" class="aos-init aos-animate">
-          <a
-            href="/listing-list.html"
-            class="text-gray-500 dark:text-gray-400 hover:text-blue-500 flex items-center"
-          >
+          <router-link :to="{name:'roadtoeagma'}" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 flex items-center">
             Explore More
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -299,35 +332,45 @@ const handleSlideChange = () => {
                 d="M14 5l7 7m0 0l-7 7m7-7H3"
               ></path>
             </svg>
-          </a>
+          </router-link>
         </div>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
-        <a
+        <!-- :to="{name:'projectdetail',params:{slug:proj.slug}} -->
+<router-link 
+  v-for="blog in blog"
+  :key="blog.index" 
+  :to="{ name: 'blog-post', params: { slug:blog.slug } }"
+>
+  <div class="relative overflow-hidden group rounded-lg group">
+    <img
+      class="w-full h-[277px] object-cover rounded-lg transition-all group-hover:scale-105"
+      :src="blog.photo"
+      :alt="blog.title"
+    />
+    <div
+      class="absolute bottom-0 top-1/2 flex flex-col justify-end left-0 p-5 rounded-b-lg pt-2 card-linear-gradient w-full"
+    >
+      <h5 class="text-2xl font-medium mb-1 text-white">{{ blog.title }}</h5>
+      <div class="flex flex-row justify-between">
+        <p class="text-base font-normal text-gray-100">{{ blog.category.name }}</p>
+        <p class="text-base font-normal text-gray-100">{{ blog.created_at
+}}</p>
+      </div>
+    </div>
+  </div>
+</router-link>
+        <!-- <a
           href="/event-listing-details-page.html"
           data-aos="fade-up"
           data-aos-duration="800"
           class="aos-init aos-animate"
-          v-for="index in 6"
+          v-for="(blog,index) in blog"
           :key="index"
-        >
-          <div class="relative overflow-hidden group rounded-lg group">
-            <img
-              class="w-full h-[277px] object-cover rounded-lg transition-all group-hover:scale-105"
-              src="../assets/img/road/concert-2.jpg"
-              alt=""
-            />
-            <div
-              class="absolute bottom-0 top-1/2 flex flex-col justify-end left-0 p-5 rounded-b-lg pt-2 card-linear-gradient w-full"
-            >
-              <h5 class="text-2xl font-medium mb-1 text-white">News Title Goes Here</h5>
-              <div class="flex flex-row justify-between">
-                <p class="text-base font-normal text-gray-100">News Category</p>
-                <p class="text-base font-normal text-gray-100">1 Jan 2024</p>
-                </div>
-            </div>
-          </div>
+        > 
+          
         </a>
+        -->
       </div>
     </div>
   </section>
