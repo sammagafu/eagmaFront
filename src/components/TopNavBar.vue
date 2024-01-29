@@ -54,8 +54,8 @@ const toggleMenu = () => {
 const menuItems = [
   { label: "Home", route: { name: "home" } },
   { label: "Voting", route: "#" },
-  { label: "Nominees", route: "#" },
-  { label: "Know the Artist", route: "#" },
+  { label: "Nominees", route: {name:"nominees"} },
+  { label: "Know the Artist", route: {name:"artist"} },
   { label: "Road To EAGMA", route: { name: "roadtoeagma" } },
   { label: "About EAGMA", route: { name: "about" } },
 ];

@@ -7,7 +7,6 @@ import instance from "@/service";
 
 
 // images
-import imgUrl from "@/assets/img/artist.jpg";
 import sliderImgUrl from "@/assets/img/banner/slider-1.jpg";
 
 // css
@@ -29,6 +28,7 @@ const handleSwiper = (swiperInstance) => {
 const award = ref()
 const categories = ref([])
 const blog = ref([])
+const nominees = ref([])
 
 const handleSlideChange = () => {
   console.log("slide change");
@@ -58,9 +58,22 @@ const getNews = function(){
   });
 };
 
+const getNominees = function(){
+  instance.get("nominees/")
+  .then(async(response) => {
+    console.log(response.data);
+    nominees.value = await response.data;
+    // categories.value = response.data.map(award => award.categories).flat();
+  })
+  .catch(error => {
+    console.log(error);
+  });
+};
+
 onMounted(() => {
   getCategories()
   getNews()
+  getNominees()
 })
 
 
@@ -145,15 +158,15 @@ onMounted(() => {
                 @swiper="onSwiper"
                 @slideChange="onSlideChange"
               >
-                <swiper-slide v-for="index in 10" :key="index">
+                <swiper-slide v-for="nomii in nominees" :key="nomii.index">
                   <div class="relative">
-                    <img class="rounded" :src="imgUrl" alt="Product Image" />
+                    <img class="rounded" :src="nomii.artist.photo" alt="Product Image" />
                     <div
                       class="absolute inset-0 flex flex-col bg-gradient-to-b from-transparent to-black rounded-3"
                     >
                       <div class="flex-grow flex flex-col justify-end p-3 text-center">
-                        <h4 class="text-white font-bold">Artist Name</h4>
-                        <p class="text-white text-opacity-85">Best Artist of the year</p>
+                        <h4 class="text-white font-bold">{{nomii.artist.name}}</h4>
+                        <p class="text-white text-opacity-85">{{nomii.category.name}}</p>
                         <div class="py-4 mx-auto">
                           <a
                             href="#"

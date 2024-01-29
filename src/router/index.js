@@ -15,7 +15,7 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
-      path: '/road-to-eagma',
+      path: '/road-to-eagma/',
       name: 'roadtoeagma',
       component: () => import('../views/RoadToEagma.vue')
     },
@@ -24,7 +24,31 @@ const router = createRouter({
       name: 'blog-post',
       component: () => import('../views/RoadToEagmaDetail.vue')
     },
+    {
+      path:'/artist/',
+      name:'artist',
+      component : () => import('../views/Artist.vue')
+    },
+    {
+      path:'/artist/:slug',
+      name:'artistDetial',
+      component : () => import('../views/ArtistDetails.vue')
+    },
+    {
+      path:'/nominees/',
+      name:'nominees',
+      component : () => import('../views/Nominees.vue')
+    },
+    {
+      path:'/artist/:slug',
+      name:'artistDetial',
+      component : () => import('../views/ArtistDetails.vue')
+    },
   ]
 })
 
+router.beforeEach((to, from, next) => {
+  document.title = to.name;
+  next();
+});
 export default router
