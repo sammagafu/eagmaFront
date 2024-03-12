@@ -8,10 +8,13 @@
           </div>
           <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
               <div>
-                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Useful Links</h2>
                   <ul class="text-gray-500 dark:text-gray-400 font-medium">
                       <li class="mb-4">
-                          <a href="https://flowbite.com/" class="hover:underline">Ticketing</a>
+                          <router-link :to="{name:'boardDirectors'}">Board of directors</router-link>
+                      </li>
+                      <li class="mb-4">
+                          <router-link :to="{name:'boardofadvisory'}">Board of Advisory</router-link>
                       </li>
                       <li class="mb-4">
                           <a href="https://tailwindcss.com/" class="hover:underline">How to Vote</a>
@@ -27,22 +30,28 @@
               <div>
                   <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
                   <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                      <li class="mb-4">
-                          <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Github</a>
+                      <li class="mt-4">
+                          <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Facebook</a>
                       </li>
                       <li>
-                          <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Discord</a>
+                          <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Instagram</a>
+                      </li>
+                      <li>
+                          <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Twitter (X)</a>
                       </li>
                   </ul>
               </div>
               <div>
-                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Other Links</h2>
                   <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                      <li class="mb-4">
-                          <a href="#" class="hover:underline">Privacy Policy</a>
+                      <li class="mt-4">
+                          <a href="#" class="hover:underline">Ticketing</a>
                       </li>
                       <li>
-                          <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                          <a href="#" class="hover:underline">How to vote</a>
+                      </li>
+                      <li>
+                          <a href="#" class="hover:underline">How to vote</a>
                       </li>
                   </ul>
               </div>

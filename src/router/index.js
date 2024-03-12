@@ -11,9 +11,25 @@ const router = createRouter({
       component: () => import('../views/HomeView.vue')
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/AboutView.vue')
+      path: '/about/',
+      name: 'aboutUs',
+      children:[
+        {
+          path:'',
+          name: 'about',
+          component: () => import('../views/AboutView.vue'),
+        },
+        {
+          path:'board-of-directors',
+          name:'boardDirectors',
+          component : () => import('../views/BoardofDirector.vue')
+        },
+        {
+          path:'board-of-advisory',
+          name:'boardofadvisory',
+          component : () => import('../views/BoardOfAdvisory.vue')
+        },
+      ]
     },
     {
       path: '/road-to-eagma/',
