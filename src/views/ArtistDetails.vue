@@ -59,79 +59,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="border-t border-gray-100 dark:border-gray-700">
-                                    <ul class="list-none sidebar-nav mb-0 pb-0" id="navmenu-nav">
-                                        <li class="navbar-item account-menu active">
-                                            <a href="user-account.html"
-                                                class="navbar-link text-slate-400 flex items-center py-2 rounded">
-                                                <span class="me-2 mb-0"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                        stroke-linejoin="round" class="feather feather-airplay size-4">
-                                                        <path
-                                                            d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1">
-                                                        </path>
-                                                        <polygon points="12 15 17 21 7 21 12 15"></polygon>
-                                                    </svg></span>
-                                                <h6 class="mb-0 font-medium">Bio</h6>
-                                            </a>
-                                        </li>
-
-                                        <li class="navbar-item account-menu">
-                                            <a href="user-billing.html"
-                                                class="navbar-link text-slate-400 flex items-center py-2 rounded">
-                                                <span class="me-2 mb-0"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                        stroke-linejoin="round" class="feather feather-edit size-4">
-                                                        <path
-                                                            d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7">
-                                                        </path>
-                                                        <path
-                                                            d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z">
-                                                        </path>
-                                                    </svg></span>
-                                                <h6 class="mb-0 font-medium">Albums</h6>
-                                            </a>
-                                        </li>
-
-                                        <li class="navbar-item account-menu">
-                                            <a href="user-payment.html"
-                                                class="navbar-link text-slate-400 flex items-center py-2 rounded">
-                                                <span class="me-2 mb-0"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                        class="feather feather-credit-card size-4">
-                                                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-                                                        <line x1="1" y1="10" x2="23" y2="10"></line>
-                                                    </svg></span>
-                                                <h6 class="mb-0 font-medium">Songs</h6>
-                                            </a>
-                                        </li>
-
-                                        <li class="navbar-item account-menu">
-                                            <a href="user-invoice.html"
-                                                class="navbar-link text-slate-400 flex items-center py-2 rounded">
-                                                <span class="me-2 mb-0"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                        class="feather feather-file-text size-4">
-                                                        <path
-                                                            d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
-                                                        </path>
-                                                        <polyline points="14 2 14 8 20 8"></polyline>
-                                                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                                                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                                                        <polyline points="10 9 9 9 8 9"></polyline>
-                                                    </svg></span>
-                                                <h6 class="mb-0 font-medium">Videos</h6>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -142,11 +69,55 @@
                         <div class="relative overflow-x-auto shadow dark:shadow-gray-800 rounded-md">
                             <Accordion :multiple="true">
                                 <AccordionTab v-for="album in artist.albums" :key="album.id" :header="album.name">
-                                    <ul>
+                                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                                        <table
+                                            class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            <thead
+                                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                                <tr>
+                                                    <th scope="col" class="px-6 py-3">
+                                                        Song Name
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3">
+                                                        Release Date
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3">
+                                                        Audio
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3">
+                                                        Video
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+                                                    v-for="song in album.songs" :key="song.id">
+                                                    <th scope="row"
+                                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        {{ song.title }}
+                                                    </th>
+                                                    <th scope="row"
+                                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        {{ song.release_date }}
+                                                    </th>
+                                                    <td class="px-6 py-4">
+                                                        <a :href="song.audio_file" target="_blank"><i class="pi pi-play"
+                                                                style="color: slateblue"></i></a>
+                                                    </td>
+                                                    <td class="px-6 py-4">
+                                                        <a :href="song.video_link" target="_blank"><i
+                                                                class="pi pi-video" style="color: slateblue"></i></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <!-- <ul>
                                         <li v-for="song in album.songs" :key="song.id">
-                                            <a :href="song.audio_file" target="_blank">{{ song.title }}</a>
+                                           
                                         </li>
-                                    </ul>
+                                    </ul> -->
                                 </AccordionTab>
                             </Accordion>
                         </div>
@@ -159,9 +130,15 @@
 </template>
 
 <script setup>
+
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
+
+import Accordion from 'primevue/accordion';
+import AccordionTab from 'primevue/accordiontab';
+
 import { ref, onMounted } from 'vue';
 import instance from "@/service";
-import AccordionTab from 'primevue/accordiontab';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();

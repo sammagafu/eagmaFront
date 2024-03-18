@@ -1,19 +1,21 @@
 <template>
-  <div class="bg-gray-200 rounded-xl shadow-md overflow-hidden mt-6">
-    <div class="md:flex">
-      <div class="md:flex-shrink-0">
-        <img class="h-48 w-full object-cover md:w-48" :src="artist.photo" :alt="artist.name">
-      </div>
-      <div class="p-8">
-        <h1 class="text-2xl font-bold mb-2">{{ artist.name }}</h1>
-        <p class="text-gray-500 mb-4 text-sm">Nominated for: {{ category.name }}</p>
-        <div class="flex">
+  <figure class="md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800">
+    <img class="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto md:mx-0" :src="artist.photo" :alt="artist.name" width="384" height="512">
+    <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
+      <figcaption class="font-medium">
+        <div class="text-sky-500 dark:text-sky-400">
+          {{ artist.name }}
+        </div>
+        <div class="text-slate-700 dark:text-slate-500">
+          Nominated for: {{ category.name }}
+        </div>
+        <div class="flex py-4">
           <ArtistProfile :slug="artist.slug"/>
           <VoteButton :category="category" :artist="artist"/>
         </div>
-      </div>
+      </figcaption>
     </div>
-  </div>
+  </figure>
 </template>
 
 <script setup>
@@ -28,8 +30,4 @@ const props = defineProps({
   category: Object
 })
 
-onMounted(()=>{
-  // console.log('category :>> ', category);
-  console.log('props :>> ', props);
-});
 </script>

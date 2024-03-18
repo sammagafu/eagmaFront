@@ -9,6 +9,7 @@ import instance from './service';
 import ToastService from 'primevue/toastservice';
 // theme
 import 'primevue/resources/themes/lara-light-green/theme.css';
+import '@/assets/main.css'
 
 
 
@@ -20,5 +21,6 @@ app.use(router)
 app.use(PrimeVue);
 app.use(ToastService);
 
+app.use(PrimeVue, { unstyled: true });
 
 app.mount('#app')
