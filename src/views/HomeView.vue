@@ -201,14 +201,14 @@ onMounted(() => {
       </div>
     </div>
     <div class="container mx-auto py-14 sm:px-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
         <div v-for="(award,index) in categories" :key="index" class="bg-[#C2922E] py-4 rounded-2xl drop-shadow-md">
           <div class="flex items-center px-8">
             <div class="flex-shrink-0">
               <!-- <img class="w-14 h-14 rounded-full" :src="avatar" alt="Neil image" /> -->
               <svg
-                width="52"
-                height="96"
+                width="32"
+                height="76"
                 viewBox="0 0 52 96"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -248,7 +248,7 @@ onMounted(() => {
               </svg>
             </div>
             <div class="flex-1 min-w-0 ms-4">
-              <p class="text-xl font-medium text-slate-900 dark:text-slate-600">
+              <p class="text-base font-medium text-slate-900 dark:text-slate-600">
                {{award.name}}
               </p>
             </div>

@@ -3,7 +3,7 @@ import { useAuthStore } from '@/stores/counter';
 
 
 const instance = axios.create({
-  baseURL: 'http://api.eagma.co.tz/',
+  baseURL: 'https://api.eagma.co.tz/',
   headers: {
     'Content-type': 'application/json',
   },

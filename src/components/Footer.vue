@@ -1,10 +1,10 @@
 <template>
 
-<footer class="bg-white dark:bg-gray-900 lg:mt-6">
+<footer class="bg-gray-900 lg:mt-6">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
-            <router-link :to="{name:'home'}"><img src="@/assets/eagma.svg" class="h-24 mr-3" alt="EAGMA LOGO" /></router-link>
+            <router-link :to="{name:'home'}"><img src="@/assets/eagma.svg" class="h-48 mr-3" alt="EAGMA LOGO" /></router-link>
           </div>
           <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
               <div>

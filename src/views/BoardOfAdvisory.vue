@@ -27,11 +27,11 @@ adeptly manage the event's objectives and overarching theme.</p>
     </section>
 
     <div class="container mx-auto py-48">
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-[40px]">
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-[40px]	align-content: center;">
         <!-- user -->
       <div class="group relative">
         <div class=" bg-white shadow-box3 rounded-md transition-all duration-100 text-center hover:shadow-box4   ">
-          <div class=" h-[270px] rounded-t-md  relative mx-auto  overflow-hidden">
+          <div class=" h-auto rounded-t-md  relative mx-auto  overflow-hidden">
             <img src="../assets/img/team/1.png" alt="" class=" w-full h-full object-cover rounded-t-md ">
           </div>
           <div class="course-content p-6">
@@ -45,8 +45,8 @@ adeptly manage the event's objectives and overarching theme.</p>
         <!-- user -->
         <div class="group relative">
         <div class=" bg-white shadow-box3 rounded-md transition-all duration-100 text-center hover:shadow-box4   ">
-          <div class=" h-[270px] rounded-t-md  relative mx-auto  overflow-hidden">
-            <img src="../assets/img/team/2.png" alt="" class=" w-full h-full object-cover rounded-t-md ">
+          <div class=" h-auto rounded-t-md  relative mx-auto  overflow-hidden">
+            <img src="../assets/img/team/2.png" alt="" class=" w-full h-full object-cover bg-center rounded-t-md ">
           </div>
           <div class="course-content p-6">
             <h4 class=" lg:text-2xl text-1xl mb-1 font-bold">Hon Eric James Shigongo</h4>
@@ -59,7 +59,7 @@ adeptly manage the event's objectives and overarching theme.</p>
         <!-- user -->
         <div class="group relative">
         <div class=" bg-white shadow-box3 rounded-md transition-all duration-100 text-center hover:shadow-box4   ">
-          <div class=" h-[270px] rounded-t-md  relative mx-auto  overflow-hidden">
+          <div class=" h-auto rounded-t-md  relative mx-auto  overflow-hidden">
             <img src="../assets/img/team/3.png" alt="" class=" w-full h-full object-cover rounded-t-md ">
           </div>
           <div class="course-content p-6">
@@ -73,7 +73,7 @@ adeptly manage the event's objectives and overarching theme.</p>
         <!-- user -->
         <div class="group relative">
         <div class=" bg-white shadow-box3 rounded-md transition-all duration-100 text-center hover:shadow-box4   ">
-          <div class=" h-[270px] rounded-t-md  relative mx-auto  overflow-hidden">
+          <div class=" h-auto rounded-t-md  relative mx-auto  overflow-hidden">
             <img src="../assets/img/team/4.png" alt="" class=" w-full h-full object-cover rounded-t-md ">
           </div>
           <div class="course-content p-6">
