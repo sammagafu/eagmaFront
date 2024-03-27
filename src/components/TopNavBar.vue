@@ -2,7 +2,7 @@
 <nav class="bg-gray-900">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <router-link :to="{ name: 'home' }">
-        <img src="@/assets/eagma.svg" class="h-24 mr-3" alt="EAGMA LOGO" />
+        <img src="@/assets/eagma.svg" class="h-48 mr" alt="EAGMA LOGO" />
       </router-link>
       <button
         @click="toggleMenu"
