@@ -53,8 +53,20 @@ const router = createRouter({
     },
     {
       path:'/nominees/',
-      name:'nominees',
-      component : () => import('../views/Nominees.vue')
+      name:'nominees-landing',
+      children : [
+        {
+          path:'',
+          name:'nominees',
+          component : () => import('../views/Nominees.vue'),
+
+        },
+        {
+          path:'filtered/:slug',
+          name:'filtered-artist',
+          component : () => import('@/views/FIlteredByCategory.vue')
+        }
+      ]
     },
     {
       path:'/account/',
