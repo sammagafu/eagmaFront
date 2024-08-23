@@ -69,7 +69,7 @@ const password = ref('')
 const router = useRouter()
 
 const loginUser = function(){
-    instance.post('auth/token/login',{
+    instance.post('auth/token/',{
         'email':email.value,
         'password':password.value
     }).then(response => {
