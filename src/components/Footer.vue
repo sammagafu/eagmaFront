@@ -31,13 +31,13 @@
                   <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
                   <ul class="text-gray-500 dark:text-gray-400 font-medium">
                       <li class="mt-4">
-                          <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Facebook</a>
+                          <a href="https://web.facebook.com/profile.php?id=61557302621441" class="hover:underline ">Facebook</a>
                       </li>
                       <li>
-                          <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Instagram</a>
+                          <a href="https://www.instagram.com/eagmaafrica?igsh=MWR0ZjJ2cDk0Ym9ubg%3D%3D&utm_source=qr" class="hover:underline">Instagram</a>
                       </li>
                       <li>
-                          <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Twitter (X)</a>
+                          <a href="https://www.tiktok.com/@eagmaafrica?_t=8ky7TAVQTjC&_r=1" class="hover:underline">Tiktok</a>
                       </li>
                   </ul>
               </div>

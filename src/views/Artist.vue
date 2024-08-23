@@ -1,71 +1,131 @@
 <template>
-    <section
-        class="relative table w-full items-center py-36 bg-[url('../assets/img/header/blog.jpg')] bg-center bg-no-repeat bg-cover">
-        <div class="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/80 to-slate-900"></div>
-        <div class="container relative mx-auto">
-            <div class="grid grid-cols-1 pb-8 text-center mt-10">
-                <h3 class="mb-3 text-4xl leading-normal tracking-wider font-semibold text-white">Artists</h3>
-            </div><!--end grid-->
-        </div><!--end container-->
+    <div class="pt-[20px] xl:pt-[150px] pb-[150px]">
+        <div class="max-w-[1350px] mx-auto px-[15px]">
+            <div class="card">
+                <DataView :value="loading ? [] : artist" :layout="layout">
+                    <template #header>
+                        <div class="flex justify-end">
+                            <SelectButton v-model="layout" :options="options" :allowEmpty="false">
+                                <template #option="{ option }">
+                                    <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-table']" />
+                                </template>
+                            </SelectButton>
+                        </div>
+                    </template>
 
-        <div class="absolute text-center z-10 bottom-5 start-0 end-0 mx-3">
-            <ul class="tracking-[0.5px] mb-0 inline-block">
-                <!-- <li class="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white"><router-link :to="{name:''}">EAGMA</router-link</li> -->
-                <li
-                    class="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white">
-                    <router-link :to="{ name: 'home' }"></router-link>EAGMA</li>
-                <li class="inline-block text-base text-white/50 mx-0.5 ltr:rotate-0 rtl:rotate-180"><i class="pi pi-angle-double-right" style="font-size: 1rem"></i></li>
-                <li class="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white"
-                    aria-current="page">Artist</li>
-            </ul>
-        </div>
-    </section>
-    <section class="py-16">
-        <div class="container mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3  gap-3">
-            <div class="bg-gray-200 rounded-xl shadow-md overflow-hidden mt-6" v-for="artist in artist" :key="artist.index">
-                <div class="md:flex">
-                    <div class="md:flex-shrink-0">
-                        <img class="h-48 w-full object-cover md:w-48" :src="artist.photo" :alt="artist.name">
-                    </div>
-                    <div class="p-8">
-                        <h1 class="text-2xl font-bold mb-2"><router-link :to="{name:'artistDetial',params: { slug:artist.slug } }">{{ artist.name }}</router-link></h1>
-                        <p class="text-gray-500 mb-4">{{artist.gender}}</p>
+                    <!-- List View -->
+                    <template #list="slotProps">
+                        <div v-if="loading" class="flex flex-col">
+                            <!-- Placeholder skeleton loader for list view -->
+                            <div v-for="i in 6" :key="i">
+                                <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4 border-t border-surface-200 dark:border-surface-700">
+                                    <Skeleton class="md:w-40 h-40 rounded" />
+                                    <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
+                                        <Skeleton class="h-6 w-48" />
+                                        <Skeleton class="h-6 w-32" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div v-else class="flex flex-col">
+                            <!-- Actual list content -->
+                            <div v-for="(item, index) in slotProps.items" :key="index">
+                                <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4"
+                                    :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
+                                    <div class="md:w-40 relative">
+                                        <img class="block xl:block mx-auto rounded w-full" :src="item.get_photo"
+                                            :alt="item.name" />
+                                        <Tag :value="item.gender" severity="info" class="absolute dark:!bg-surface-900"
+                                            style="left: 4px; top: 4px"></Tag>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
+                                        <div class="flex flex-row md:flex-col justify-between items-start gap-2">
+                                            <div>
+                                                <div class="text-lg font-medium mt-2">{{ item.name }}</div>
+                                            </div>
+                                        </div>
+                                        <div class="pt-2">
+                                            <ArtistProfile :slug="item.slug"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
 
-                        <router-link class="text-white bg-[#C2922E] hover:bg-yellow-700 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900" :to="{name:'artistDetial',params: { slug:artist.slug } }">View Profile</router-link>
-                        <!-- <a
-                            href="#"
-                            class="text-white bg-[#C2922E] hover:bg-yellow-700 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900"
-                            >View Profile</a
-                          > -->
-                    </div>
-                </div>
+                    <!-- Grid View -->
+                    <template #grid="slotProps">
+                        <div v-if="loading" class="grid grid-cols-12 gap-4">
+                            <!-- Placeholder skeleton loader for grid view -->
+                            <div v-for="i in 6" :key="i" class="col-span-12 sm:col-span-6 md:col-span-4 xl:col-span-4 p-2">
+                                <div class="p-6 border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900 rounded flex flex-col">
+                                    <Skeleton class="h-64 w-full rounded" />
+                                    <Skeleton class="h-6 w-48 mt-4" />
+                                    <Skeleton class="h-6 w-32 mt-2" />
+                                </div>
+                            </div>
+                        </div>
+                        <div v-else class="grid grid-cols-12 gap-4">
+                            <!-- Actual grid content -->
+                            <div v-for="(item, index) in slotProps.items" :key="index"
+                                class="col-span-12 sm:col-span-6 md:col-span-4 xl:col-span-4 p-2">
+                                <div
+                                    class="p-6 border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900 rounded flex flex-col">
+                                    <div class="bg-surface-50 flex justify-center rounded p-4">
+                                        <div class="relative mx-auto">
+                                            <img class="rounded w-full" :src="item.get_photo" :alt="item.name"
+                                                style="max-width: 300px" />
+                                            <Tag :value="item.gender" severity="info"
+                                                class="absolute dark:!bg-surface-900" style="left: 4px; top: 4px"></Tag>
+                                        </div>
+                                    </div>
+                                    <div class="pt-6">
+                                        <div class="flex flex-row justify-between items-start gap-2">
+                                            <div>
+                                                <div class="text-lg font-medium mt-1">{{ item.name }}</div>
+                                            </div>
+                                        </div>
+                                        <div class="p-2">
+                                            <ArtistProfile :slug="item.slug"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </DataView>
             </div>
-
         </div>
-        </div>
-    </section>
+    </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
 import instance from "@/service";
-const artist = ref([])
+import DataView from 'primevue/dataview';
+import SelectButton from 'primevue/selectbutton';
+import Tag from 'primevue/tag';
+import Skeleton from 'primevue/skeleton';
+import ArtistProfile from '@/components/ArtistProfile.vue';
 
+const artist = ref([]);
+const layout = ref('grid');
+const options = ref(['list', 'grid']);
+const loading = ref(true); // Add a loading state
 
-const getArtist = function () {
+const getArtist = () => {
     instance.get("artist/artist/")
         .then(async (response) => {
-            console.log(response.data);
             artist.value = await response.data;
-            // categories.value = response.data.map(award => award.categories).flat();
+            loading.value = false; // Set loading to false once data is fetched
         })
         .catch(error => {
             console.log(error);
+            loading.value = false; // Set loading to false even if there's an error
         });
 };
 
 onMounted(() => {
-    getArtist()
-})
+    getArtist();
+});
 </script>

@@ -43,8 +43,6 @@
                         <div class="relative md:-mt-48 -mt-32">
                             <div class="p-6 rounded-md shadow dark:shadow-gray-800 bg-white dark:bg-slate-900">
                                 <div class="profile-pic text-center mb-5">
-                                    <input id="pro-img" name="profile-image" type="file" class="hidden"
-                                        onchange="loadFile(event)">
                                     <div>
                                         <div class="relative h-28 w-28 mx-auto">
                                             <img :src="artist.get_photo"
@@ -64,7 +62,7 @@
                     </div>
 
                     <div class="lg:w-3/4 md:w-2/3 md:px-3 md:mt-0">
-                        {{ artist.bio }}
+                        <div class="py-2" v-html="artist.bio"></div>
                         <h5 class="text-lg font-semibold my-6">Albums</h5>
                         <div class="relative overflow-x-auto shadow dark:shadow-gray-800 rounded-md">
                             <Accordion :multiple="true">

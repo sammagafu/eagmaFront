@@ -8,8 +8,8 @@ export default {
   theme: {
     extend: {},
     fontFamily: {
-      sans: ['Poppins', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
+      sans: ['Montserrat', 'sans-serif'],
+      serif: ['Montserrat', 'serif'],
     },
   },
   plugins: [],

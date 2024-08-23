@@ -1,83 +1,3 @@
-<script setup>
-import { ref, reactive, onMounted, computed } from "vue";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
-import VueWriter from "vue-writer";
-import instance from "@/service";
-
-
-// images
-import sliderImgUrl from "@/assets/img/banner/slider-1.jpg";
-
-// css
-import "swiper/css";
-import "swiper/css/navigation";
-
-const modules = [Autoplay, Pagination, Navigation, EffectFade];
-
-const onSwiper = ref(null);
-const onSlideChange = ref(null);
-const textSlider = ref([
-  'Celebrating', 'Nurturing', 'Empowering'
-])
-
-const handleSwiper = (swiperInstance) => {
-  onSwiper.value = swiperInstance;
-};
-
-const award = ref()
-const categories = ref([])
-const blog = ref([])
-const nominees = ref([])
-
-const handleSlideChange = () => {
-  console.log("slide change");
-};
-
-const getCategories = function () {
-  instance.get("awards/active/")
-    .then(async (response) => {
-      console.log(response.data);
-      award.value = await response.data;
-      categories.value = response.data.map(award => award.categories).flat();
-    })
-    .catch(error => {
-      console.log(error);
-    });
-};
-
-const getNews = function () {
-  instance.get("blog/latest/")
-    .then(async (response) => {
-      console.log(response.data);
-      blog.value = await response.data;
-      // categories.value = response.data.map(award => award.categories).flat();
-    })
-    .catch(error => {
-      console.log(error);
-    });
-};
-
-const getNominees = function () {
-  instance.get("nominees/")
-    .then(async (response) => {
-      console.log(response.data);
-      nominees.value = await response.data;
-      // categories.value = response.data.map(award => award.categories).flat();
-    })
-    .catch(error => {
-      console.log(error);
-    });
-};
-
-onMounted(() => {
-  getCategories()
-  getNews()
-  getNominees()
-})
-
-
-</script>
 
 <template>
   <!-- Jumbotron -->
@@ -112,7 +32,7 @@ onMounted(() => {
   </section>
 
   <!-- swipper starts here -->
-  <section class="py-12 lg:py-48 bg-slate-800">
+  <section class="py-12 lg:py-48 bg-slate-800 font-sans">
     <div class="container px-4 mx-auto">
       <div class="flex flex-wrap -mx-3">
         <div class="relative w-full lg:w-1/4 mb-8 lg:mb-0 text-center lg:text-left">
@@ -207,7 +127,7 @@ onMounted(() => {
     </div>
   </section>
 
-  <section id="home" class="relative overflow-hidden mt-48">
+  <section id="home" class="relative overflow-hidden mt-48" v-if="verse">
     <div class="px-4 md:px-10">
       <div
         class="rounded-2xl overflow-hidden bg-no-repeat bg-cover bg-center bg-[url('../assets/img/header/bible.jpg')]">
@@ -217,13 +137,12 @@ onMounted(() => {
               <div class="flex h-full items-center justify-center py-36">
                 <div class="text-center max-w-3xl mx-auto relative">
                   <span
-                    class="py-1 px-3 rounded-md text-sm font-medium uppercase tracking-wider text-white bg-white/10">knowledge
-                    hub</span>
+                    class="py-1 px-3 rounded-md text-sm font-medium uppercase tracking-wider text-white bg-white/10">Verse of the Day</span>
                   <h1 class="md:text-5xl/snug text-3xl font-medium text-white mt-10">
-                    Bible Verse Challange
+                    {{verse.text}}
                   </h1>
                   <p class="w-3/4 mx-auto text-base font-normal text-white/80 mt-5">
-                    challange others to this wonderful game and earn price in every week leaderboard
+                    {{  }}
                   </p>
 
                   <div class="flex justify-center mt-10">
@@ -324,3 +243,146 @@ onMounted(() => {
   stroke: black !important;
 }
 </style>
+
+
+<script setup>
+import { ref, reactive, onMounted, computed } from "vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
+import VueWriter from "vue-writer";
+import instance from "@/service";
+
+
+// images
+import sliderImgUrl from "@/assets/img/banner/slider-1.jpg";
+
+// css
+import "swiper/css";
+import "swiper/css/navigation";
+import axios from "axios";
+
+const modules = [Autoplay, Pagination, Navigation, EffectFade];
+
+const onSwiper = ref(null);
+const onSlideChange = ref(null);
+const textSlider = ref([
+  'Celebrating', 'Nurturing', 'Empowering'
+])
+
+const handleSwiper = (swiperInstance) => {
+  onSwiper.value = swiperInstance;
+};
+
+const award = ref()
+const categories = ref([])
+const blog = ref([])
+const nominees = ref([])
+
+const verse = ref({
+  bookname: '',
+  chapter: '',
+  verse: '',
+  text: '',
+});
+const loading = ref(false);
+
+
+const handleSlideChange = () => {
+  console.log("slide change");
+};
+
+window.myCallback = function(response) {
+  const result = response[0];
+  verse.value = {
+    bookname: result.bookname,
+    chapter: result.chapter,
+    verse: result.verse,
+    text: result.text,
+  };
+  loading.value = false;
+};
+
+const getVerse = () => {
+  loading.value = true;
+  const script = document.createElement('script');
+  script.src = 'https://labs.bible.org/api/?passage=random&type=json&callback=myCallback';
+  document.body.appendChild(script);
+};
+
+
+
+
+const getRandomVerse = () => {
+  axios
+    .get(
+      'https://labs.bible.org/api/?passage=random&type=json&callback=myCallback',
+      {
+        crossDomain: true,
+        responseType: 'jsonp',
+      }
+    )
+    .then((response) => {
+      const result = response.data[0];
+      bookname.value = result.bookname;
+      chapter.value = result.chapter;
+      verse.value = result.verse;
+      text.value = result.text; 
+      // verse.value = {
+      //   bookname: result.bookname,
+      //   chapter: result.chapter,
+      //   verse: result.verse,
+      //   text: result.text,
+      // };
+      console.log('verse.value :>> ', text.value);
+    })
+    
+    .catch((error) => {
+      console.error('Error fetching verse:', error);
+    });
+};
+
+const getCategories = function () {
+  instance.get("awards/active/")
+    .then(async (response) => {
+      console.log(response.data);
+      award.value = await response.data;
+      categories.value = response.data.map(award => award.categories).flat();
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
+
+const getNews = function () {
+  instance.get("blog/latest/")
+    .then(async (response) => {
+      console.log(response.data);
+      blog.value = await response.data;
+      // categories.value = response.data.map(award => award.categories).flat();
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
+
+const getNominees = function () {
+  instance.get("nominees/")
+    .then(async (response) => {
+      console.log(response.data);
+      nominees.value = await response.data;
+      // categories.value = response.data.map(award => award.categories).flat();
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
+
+onMounted(() => {
+  getCategories()
+  getNews()
+  getNominees()
+  getVerse();
+})
+
+
+</script>

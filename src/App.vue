@@ -5,11 +5,11 @@ import Footer from '@/components/Footer.vue'
 </script>
 
 <template>
-  <header>
+  <header class="font-serif">
     <TopNavBarVue />
   </header>
   <RouterView />
-  <footer>
+  <footer class="font-serif">
     <Footer />
   </footer>
 </template>

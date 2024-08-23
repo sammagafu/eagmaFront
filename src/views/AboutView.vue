@@ -14,7 +14,7 @@
             Our Goal
           </h4>
           <h2
-            class="text-black font-semibold text-[14px] md:text-[20px] lg:text-[26px] xl:text-[32px] leading-[1.2] mb-[15px] md:mb-[30px]">
+            class="text-black font-semibold text-[14px] md:text-[20px] lg:text-[26px] xl:text-[32px] leading-[1.5] mb-[15px] md:mb-[30px]">
             This platform aims to acknowledge, motivate, reward, and cultivate the talents
             of artists, particularly gospel singers, in order to reshape and impact
             society, with a focus on Tanzania and East Africa as a whole.
@@ -34,7 +34,7 @@
           <div
             class="absolute bottom-0 right-0 bg-[#C2922E] h-[55%] w-full group-[.hway-active]/hw:w-0 transition-all duration-[.5s]">
           </div>
-          <img class="w-full" src="https://raw.githubusercontent.com/uiaextend/jconsultiva/main/about-img-1.png" alt="" />
+          <img class="w-full" src="@/assets/img/team.png" alt="" />
         </div>
       </div>
     </div>
@@ -213,7 +213,7 @@
   <!-- counter ends here -->
 
   <!-- comittee -->
-  <div class="container mx-auto">
+  <!-- <div class="container mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-[40px]">
       <div class="group relative" v-for="index in 4" :key="index">
         <div class=" bg-white shadow-box3 rounded-md transition-all duration-100 text-center hover:shadow-box4   ">
@@ -227,7 +227,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script setup>
