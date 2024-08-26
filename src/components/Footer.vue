@@ -11,13 +11,10 @@
                   <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Useful Links</h2>
                   <ul class="text-gray-500 dark:text-gray-400 font-medium">
                       <li class="mb-4">
-                          <router-link :to="{name:'boardDirectors'}">Board of directors</router-link>
+                          <router-link :to="{name:'boardDirectors'}">EAGMA Structure</router-link>
                       </li>
                       <li class="mb-4">
                           <router-link :to="{name:'boardofadvisory'}">Board of Advisory</router-link>
-                      </li>
-                      <li class="mb-4">
-                          <a href="https://tailwindcss.com/" class="hover:underline">How to Vote</a>
                       </li>
                       <li class="mb-4">
                           <a href="https://tailwindcss.com/" class="hover:underline">How to Volunteer</a>
@@ -48,10 +45,10 @@
                           <a href="#" class="hover:underline">Ticketing</a>
                       </li>
                       <li>
-                          <a href="#" class="hover:underline">How to vote</a>
+                        <router-link :to="{name:'howtovote'}" class="hover:underline">How to vote</router-link>
                       </li>
                       <li>
-                          <a href="#" class="hover:underline">How to vote</a>
+                        <router-link :to="{name:'terms'}" class="hover:underline"> Privacy Policy & Terms</router-link>
                       </li>
                   </ul>
               </div>

@@ -137,7 +137,7 @@
                         <div class="">k</div>
                       </div>
                       <div class="text-[18px] leading-[28px] text-center">
-                        Musics Catelogue
+                        music catalogue
                       </div>
                     </div>
                   </div>
@@ -155,7 +155,7 @@
                         <div class="">k</div>
                       </div>
                       <div class="text-[18px] leading-[28px] text-center">
-                        Registered Useres
+                        registered users
                       </div>
                     </div>
                   </div>
@@ -179,7 +179,7 @@
                         </div>
                       </div>
                       <div class="text-[18px] leading-[28px] text-center">
-                        Artists Registered
+                        registered artists
                       </div>
                     </div>
                   </div>
@@ -197,7 +197,7 @@
                         <div class="">+</div>
                       </div>
                       <div class="text-[18px] leading-[28px] text-center">
-                        Awards Categories
+                        awards categories
                       </div>
                     </div>
                   </div>

@@ -4,7 +4,7 @@
         <div class="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/80 to-slate-900"></div>
         <div class="container relative mx-auto">
             <div class="grid grid-cols-1 pb-8 text-center mt-10">
-                <h3 class="mb-3 text-4xl leading-normal tracking-wider font-semibold text-white">Board of Directors</h3>
+                <h3 class="mb-3 text-4xl leading-normal tracking-wider font-semibold text-white">EAGMA STRUCTURE</h3>
             </div><!--end grid-->
         </div><!--end container-->
 
@@ -18,7 +18,7 @@
                 <li class="inline-block text-base text-white/50 mx-0.5 ltr:rotate-0 rtl:rotate-180"><i
                         class="pi pi-angle-double-right" style="font-size: 1rem"></i></li>
                 <li class="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white"
-                    aria-current="page">Board of Directors</li>
+                    aria-current="page">EAGMA STRUCTURE</li>
             </ul>
         </div>
     </section>

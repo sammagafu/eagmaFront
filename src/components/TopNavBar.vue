@@ -57,5 +57,6 @@ const menuItems = [
   { label: "Know the Artist", route: {name:"artist"} },
   { label: "Road To EAGMA", route: { name: "roadtoeagma" } },
   { label: "About EAGMA", route: { name: "about" } },
+  { label: "Contact Us", route: { name: "contactus" } },
 ];
 </script>

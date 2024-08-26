@@ -88,12 +88,26 @@ adeptly manage the event's objectives and overarching theme.</p>
        <div class="group relative">
         <div class=" bg-white shadow-box3 rounded-md transition-all duration-100 text-center hover:shadow-box4   ">
           <div class=" h-[270px] rounded-t-md  relative mx-auto  overflow-hidden">
-            <img src="../assets/img/team/fefe.png" alt="" class=" w-full h-full object-cover rounded-t-md ">
+            <img src="../assets/img/team/mc.jpg" alt="" class=" w-full h-full object-cover rounded-t-md ">
           </div>
           <div class="course-content p-6">
             <h4 class=" lg:text-2xl text-1xl mb-1 font-bold">Magreth Wilson Chacha</h4>
-            <div>Ceo Of Centre Stage Group of
+            <div>Managing Director Of Centre Stage Group of
 Company And Founder Of Eagma.</div>
+          </div>
+        </div>
+      </div>
+      <!-- end of user -->
+
+      <!-- user -->
+      <div class="group relative">
+        <div class=" bg-white shadow-box3 rounded-md transition-all duration-100 text-center hover:shadow-box4   ">
+          <div class=" h-[270px] rounded-t-md  relative mx-auto  overflow-hidden">
+            <img src="../assets/img/team/ado.jpg" alt="" class=" w-full h-full object-cover rounded-t-md ">
+          </div>
+          <div class="course-content p-6">
+            <h4 class=" lg:text-2xl text-1xl mb-1 font-bold">Addo November</h4>
+            <div>Board of Advisory</div>
           </div>
         </div>
       </div>

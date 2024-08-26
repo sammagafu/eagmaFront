@@ -37,6 +37,21 @@ const router = createRouter({
       component: () => import('../views/RoadToEagma.vue')
     },
     {
+      path: '/how-to-vote/',
+      name: 'howtovote',
+      component: () => import('../views/HowToVote.vue')
+    },
+    {
+      path: '/terms-and-policy/',
+      name: 'terms',
+      component: () => import('../views/TermPolicy.vue')
+    },
+    {
+      path: '/contact-us/',
+      name: 'contactus',
+      component: () => import('../views/ContactUs.vue')
+    },
+    {
       path: '/road-to-eagma/:slug',
       name: 'blog-post',
       component: () => import('../views/RoadToEagmaDetail.vue')
