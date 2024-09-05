@@ -17,11 +17,11 @@
                           <router-link :to="{name:'boardofadvisory'}">Board of Advisory</router-link>
                       </li>
                       <li class="mb-4">
-                          <a href="https://tailwindcss.com/" class="hover:underline">How to Volunteer</a>
+                          <router-link :to="{name:'howtovolunteer'}" class="hover:underline">How to Volunteer</router-link>
                       </li>
-                      <li class="mb-4">
+                      <!-- <li class="mb-4">
                           <a href="https://tailwindcss.com/" class="hover:underline">Upcomming Artist Audiation</a>
-                      </li>
+                      </li> -->
                   </ul>
               </div>
               <div>

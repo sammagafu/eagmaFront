@@ -1,0 +1,99 @@
+
+CREATE DATABASE devangwa;
+CREATE USER devangwa WITH PASSWORD 'deV@ngwa-2024';
+ALTER ROLE devangwa SET client_encoding TO 'utf8';
+ALTER ROLE devangwa SET default_transaction_isolation TO 'read committed';
+ALTER ROLE devangwa SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE devangwa TO devangwa;
+GRANT ALL ON SCHEMA public TO devangwa;
+
+
+ALTER ROLE devangwa SET client_encoding TO 'utf8';
+ALTER ROLE devangwa SET default_transaction_isolation TO 'read committed';
+ALTER ROLE devangwa SET timezone TO 'UTC';
+
+GRANT ALL PRIVILEGES ON SCHEMA public TO devangwa;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO devangwa;
+
+ALTER USER devangwa CREATEDB;
+ALTER SCHEMA public OWNER TO devangwa;
+
+gunicorn --bind 0.0.0.0:8000 devangwa.wsgi
+
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/devangwabackend
+ExecStart=/home/ubuntu/devangwabackend/bin/gunicorn \
+          --access-logfile - \
+          --workers 3 \
+          --bind unix:/run/gunicorn.sock \
+          devangwa.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+
+
+sudo systemctl start devangwa-gunicorn.socket
+sudo systemctl enable devangwa-gunicorn.socket
+
+
+sudo nano /etc/nginx/sites-available/devangwa
+
+
+-- default setup using nginx and pm to deploy
+
+server {
+    listen 80;
+    server_name www.devangwacoaching.com devangwacoaching.com http://3.93.3.158 https://3.93.3.158;
+
+    # Redirect requests to IP address to the main domain
+    if ($host = 3.93.3.158) {
+        return 301 http://devangwacoaching.com$request_uri;
+    }
+
+    # Proxy frontend requests to the PM2 server
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+    # Proxy backend requests to Gunicorn
+    location /api/ {
+        include proxy_params;
+        proxy_pass http://unix:/run/devangwa-gunicorn.sock;
+    }
+
+    # Optional: Add static and media file handling if needed
+    location /static/ {
+        alias /home/ubuntu/devangwabackend/static/;
+    }
+
+    location /media/ {
+        alias /home/ubuntu/devangwabackend/media/;
+    }
+
+    # Error pages and logging configuration (optional)
+    error_page 404 /404.html;
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+        root /usr/share/nginx/html;
+    }
+}
+
+
+
+sudo ln -s /etc/nginx/sites-available/devangwa /etc/nginx/sites-enabled
+
+
+
+curl --unix-socket /run/tanglobal.sock localhost

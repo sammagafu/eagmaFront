@@ -15,7 +15,7 @@
 						<div class="text-[55px] leading-[65px] font-['Inter_Tight'] font-black mb-[50px]">
 							<div class="">Get in Touch</div>
 						</div>
-						<form class="grid grid-cols-2 gap-[30px]">
+						<form @submit.prevent="sendEmail" class="grid grid-cols-2 gap-[30px]">
 							<div class="relative border-b-[2px] border-b-[#454545]">
 								<input type="text" id="n" name="n" placeholder="Name" class="peer bg-transparent p-[10px] ps-0 text-transparent placeholder:text-transparent focus:text-white focus:ps-[10px] focus:outline-none focus:placeholder:text-white transition-all duration-[.5s]">
 								<label for="n" class="absolute top-0 bottom-0 left-0 z-[-1] flex items-center">Name</label>
@@ -46,10 +46,18 @@
 								<div class="absolute top-0 right-0 bottom-0 left-0 z-[-1] bg-[#C2922E] origin-left scale-x-0 peer-focus:scale-x-100 transition-all duration-[.5s] delay-[.25s] peer-focus:delay-0"></div>
 								<div class="absolute top-0 right-0 bottom-0 left-0 z-[-1] bg-[#101010] origin-left scale-x-0 peer-focus:scale-x-100 transition-all duration-[.5s] peer-focus:delay-[.25s]"></div>
 							</div>
+							<div class="col-span-2" v-if="errorMessage">
+								<p class="text-red-500">{{ errorMessage }}</p>
+							</div>
+							<div class="col-span-2" v-if="successMessage">
+								<p class="text-green-500">{{ successMessage }}</p>
+							</div>
 							<div class="flex">
-								<button class="group h-[65px] relative items-center">
+								<button type="submit" class="group h-[65px] relative items-center" :disabled="sending">
 									<span class="absolute top-0 bottom-0 left-0 my-auto w-[65px] h-[65px] group-hover:left-[75%] group-hover:w-[20px] group-hover:h-[20px] rounded-[65px] bg-[#C2922E] transition-all duration-[.5s]"></span>
-									<span class="relative ms-[32px] me-[10px] group-hover:ms-0 group-hover:me-[20px] transition-all duration-[.5s]">Send Now</span>
+									<span class="relative ms-[32px] me-[10px] group-hover:ms-0 group-hover:me-[20px] transition-all duration-[.5s]">
+										{{ sending ? 'Sending...' : 'Send Now' }}
+									</span>
 									<span class="relative"><i class="fas fa-long-arrow-right"></i></span>
 								</button>
 							</div>
@@ -59,3 +67,60 @@
 			</div>
 		</div>
 </template>
+
+<script setup>
+import { ref } from 'vue';
+import axios from 'axios';
+
+const name = ref('');
+const email = ref('');
+const phone = ref('');
+const subject = ref('');
+const message = ref('');
+const sending = ref(false);
+const errorMessage = ref('');
+const successMessage = ref('');
+
+const validateForm = () => {
+	if (!name.value || !email.value || !subject.value || !message.value) {
+		errorMessage.value = 'Please fill in all required fields.';
+		return false;
+	}
+	if (!/^\S+@\S+\.\S+$/.test(email.value)) {
+		errorMessage.value = 'Please enter a valid email address.';
+		return false;
+	}
+	return true;
+};
+
+const sendEmail = async () => {
+	errorMessage.value = '';
+	successMessage.value = '';
+	
+	if (!validateForm()) return;
+
+	sending.value = true;
+	try {
+		const response = await axios.post('/api/send-email', {
+			name: name.value,
+			email: email.value,
+			phone: phone.value,
+			subject: subject.value,
+			message: message.value,
+		});
+		console.log('Email sent successfully', response.data);
+		successMessage.value = 'Your message has been sent successfully!';
+		// Reset form fields
+		name.value = '';
+		email.value = '';
+		phone.value = '';
+		subject.value = '';
+		message.value = '';
+	} catch (error) {
+		console.error('Failed to send email', error);
+		errorMessage.value = 'Failed to send email. Please try again later.';
+	} finally {
+		sending.value = false;
+	}
+};
+</script>

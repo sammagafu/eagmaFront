@@ -32,62 +32,99 @@
   </section>
 
   <!-- swipper starts here -->
-  <section class="py-12 lg:py-48 bg-slate-800 font-sans">
-    <div class="container px-4 mx-auto">
-      <div class="flex flex-wrap -mx-3">
-        <div class="relative w-full lg:w-1/4 mb-8 lg:mb-0 text-center lg:text-left">
-          <div class="max-w-md lg:max-w-xs lg:pr-16 mx-auto lg:ml-0 mb-6 lg:mb-0">
-            <h2 class="text-3xl md:text-4xl mb-4 font-bold font-heading wow animate__animated animate__fadeIn"
-              data-wow-delay=".3s">
-              Meet the
-              <span class="text-[#C2922E]">Nominees</span>
-            </h2>
-            <p class="text-xs md:text-base text-[#C2922E] leading-loose wow animate__animated animate__fadeIn"
-              data-wow-delay=".9s">
-              These talented individuals and groups represent the pinnacle of artistic
-              achievement and dedication within the world of music. Handpicked for their
-              outstanding contributions, they embody innovation, passion, and the spirit
-              of musical creativity.
-            </p>
-            <router-link :to="{name:'nominees'}" class="inline-flex items-center justify-center p-5 my-6 text-base font-medium text-gray-500 rounded-lg bg-gray-50 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-[#C2922E] dark:hover:text-white">
-              <span class="w-full">View More Nominees</span>
-              <svg class="w-4 h-4 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M1 5h12m0 0L9 1m4 4L9 9" />
-              </svg>
-            </router-link>
 
+  <div class="py-[50px] md:py-[60px] lg:py-[80px] xl:py-[100px] bg-amber-100">
+    <div class="container mx-auto">
+      <div class="grid items-center gap-[25px] grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+        <div class="lg:pr-[60px] rtl:lg:pr-0 rtl:lg:pl-[60px] xl:pr-[100px] rtl:xl:pr-0 rtl:xl:pl-[100px]">
+          <h4 class="text-black uppercase text-[12px] md:text-[15px] font-bold mb-[15px]">
+            Our Goal
+          </h4>
+          <h2
+            class="text-black font-semibold text-[14px] md:text-[20px] lg:text-[26px] xl:text-[32px] leading-[1.5] mb-[15px] md:mb-[30px]">
+            This platform aims to acknowledge, motivate, reward, and cultivate the talents
+            of artists, particularly gospel singers, in order to reshape and impact
+            society, with a focus on Tanzania and East Africa as a whole.
+          </h2>
+          <p class="text-[12px] md:text-[18px] lg:text-[24px] xl:text-[30px">
+            Promoting the heritage of East African Musical Talents by increasing the level
+            of excellence of musical talent acquisition and uniting the diversity in the
+            talents as a common goal in one platform that shares experiences, values and
+            culture.
+          </p>
+        </div>
+        <div
+          class="hidden xl:block group/hw relative overflow-hidden hway hway-active hway-active hway-active hway-active hway-active hway-active hway-active hway-active hway-active">
+          <div
+            class="absolute top-0 left-0 bg-[#C2922E] h-[55%] w-full group-[.hway-active]/hw:w-0 transition-all duration-[.5s]">
+          </div>
+          <div
+            class="absolute bottom-0 right-0 bg-[#C2922E] h-[55%] w-full group-[.hway-active]/hw:w-0 transition-all duration-[.5s]">
+          </div>
+          <img class="w-full" src="@/assets/img/team.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section-wrap bg-amber-100">
+    <div class="container mx-auto">
+      <div class="grid sm:grid-rows-2 sm:grid-flow-rows grid-cols-2 gap-2">
+        <!-- First column -->
+
+        <div class="p-4">
+          <div class="p-[24px] bg-[#14212b] relative z-[1] rounded-[10px] overflow-hidden col:p-[20px] drop-shadow">
+            <div>
+              <h2 class="text-[#C2922E] text-[34px] mb-[20px] font-semibold">
+                Our Mission
+              </h2>
+              <p class="text-amber-100 text-[18px] mb-[20px]">
+                Creating an academy for nurturing young talents through creative and
+                innovative ways
+              </p>
+              <p class="text-amber-100 text-[18px] mb-[20px]">
+                Appreciating, celebrating, and recognizing East African musical talent
+              </p>
+              <p class="text-amber-100 text-[18px] mb-[20px]">
+                Fostering positive changes in the behaviour of young talents in society by
+                providing a platform for them to express themselves creatively and have
+                their voices heard.
+              </p>
+            </div>
+
+            <div class="absolute right-[-70px] bottom-[-70px] w-[200px] h-[200px] bg-gray-600 rounded-[50%] z-[-1]"></div>
+            <div class="absolute right-0 top-0">
+              <img src="../assets/img/mission-shape.png" alt="" />
+            </div>
           </div>
         </div>
-        <div class="w-full lg:w-3/4 flex flex-wrap">
-          <div class="relative w-full">
-            <div class="carausel-2-columns slick-carausel" id="carausel-2-columns-1">
-              <swiper :slides-per-view="3" :space-between="12" :navigation="true" :modules="modules"
-                :breakpoints="{ 390: { slidesPerView: 1 }, 1024: { slidesPerView: 3 } }" @swiper="onSwiper"
-                @slideChange="onSlideChange">
-                <swiper-slide v-for="nomii in nominees" :key="nomii.index">
-                  <div class="relative">
-                    <img class="rounded-lg drop-shadow-sm" :src="nomii.artist.photo" alt="Product Image" />
-                    <div class="absolute inset-0 flex flex-col bg-gradient-to-b from-transparent to-black rounded-3">
-                      <div class="flex-grow flex flex-col justify-end p-3 text-center">
-                        <h4 class="text-white font-bold">{{ nomii.artist.name }}</h4>
-                        <p class="text-white text-opacity-85">{{ nomii.category.name }}</p>
-                        <div class="py-4 mx-auto">
-                          <router-link
-                            class="text-white bg-[#C2922E] hover:bg-yellow-700 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900"
-                            :to="{ name: 'artistDetial', params: { slug: nomii.artist.slug } }">View Profile</router-link>
-                          <!-- <a
-                            href="#"
-                            class="text-white bg-[#C2922E] hover:bg-yellow-700 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900"
-                            >View Profile</a
-                          > -->
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </swiper-slide>
-              </swiper>
+
+        <!-- Second column -->
+
+        <div class="p-4">
+          <!-- Content for the second column -->
+          <div class="p-[24px] bg-[#14212b] relative z-[1] rounded-[10px] overflow-hidden col:p-[20px] drop-shadow">
+            <div class="wpo-vission-text">
+              <h2 class="text-[#C2922E] text-[34px] mb-[20px] font-semibold">
+                Our Vision
+              </h2>
+              <p class="text-amber-100 text-[18px] mb-[20px]">
+                Preserving East African musical heritage
+              </p>
+              <p class="text-amber-100 text-[18px] mb-[20px]">
+                Promoting excellence in presentation and grooming of our Musical Talents
+              </p>
+              <p class="text-amber-100 text-[18px] mb-[20px]">
+                Expanding opportunities for creatively delivering top-notch talents.
+              </p>
+              <p class="text-amber-100 text-[18px] mb-[20px]">
+                Expanding opportunities for creatively delivering top-notch talents.
+              </p>
+              <div class="absolute right-[-70px] bottom-[-70px] w-[200px] h-[200px] bg-gray-600 rounded-[50%] z-[-1]">
+              </div>
+              <div class="absolute right-0 top-0">
+                <img src="../assets/img/mission-shape.png" alt="" />
+              </div>
             </div>
           </div>
         </div>

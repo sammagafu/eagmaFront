@@ -47,6 +47,11 @@ const router = createRouter({
       component: () => import('../views/TermPolicy.vue')
     },
     {
+      path: '/how-to-volunteer/',
+      name: 'howtovolunteer',
+      component: () => import('../views/HowtoVolunteer.vue')
+    },
+    {
       path: '/contact-us/',
       name: 'contactus',
       component: () => import('../views/ContactUs.vue')
