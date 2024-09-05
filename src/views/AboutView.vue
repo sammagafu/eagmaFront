@@ -34,7 +34,7 @@
           <div
             class="absolute bottom-0 right-0 bg-[#C2922E] h-[55%] w-full group-[.hway-active]/hw:w-0 transition-all duration-[.5s]">
           </div>
-          <img class="w-full" src="@/assets/img/team.png" alt="" />
+          <img class="w-full" src="@/assets/img/team-h.jpg" alt="" />
         </div>
       </div>
     </div>

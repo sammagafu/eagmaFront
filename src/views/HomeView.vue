@@ -61,7 +61,7 @@
           <div
             class="absolute bottom-0 right-0 bg-[#C2922E] h-[55%] w-full group-[.hway-active]/hw:w-0 transition-all duration-[.5s]">
           </div>
-          <img class="w-full" src="@/assets/img/team.png" alt="" />
+          <img class="w-full" src="@/assets/img/team-h.jpg" alt="" />
         </div>
       </div>
     </div>
@@ -133,7 +133,7 @@
   </section>
   <!-- swipper ends here -->
 
-  <section class="category bg-slate-800 py-24">
+  <section class="category bg-slate-800 py-12">
     <div class="container mx-auto">
       <div class="col-span-7">
         <!-- <h6 class="text-white uppercase">categories</h6> -->
