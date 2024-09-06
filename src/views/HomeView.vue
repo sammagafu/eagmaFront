@@ -67,7 +67,7 @@
     </div>
   </div>
 
-  <section class="section-wrap bg-amber-100">
+  <section class="section-wrap bg-amber-100 pb-24">
     <div class="container mx-auto">
       <div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
         <!-- First column -->
