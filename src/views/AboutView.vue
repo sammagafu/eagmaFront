@@ -105,6 +105,134 @@
     </div>
   </section>
 
+
+
+
+    <div class="py-32 container mx-auto">
+
+      <div class="container mx-auto">
+      <div class="container relative mx-auto py-12">
+            <div class="grid grid-cols-1 pb-8 text-center mt-10">
+                <h3 class="mb-3 text-4xl leading-normal tracking-wider font-semibold">EAGMA STRUCTURE</h3>
+                <p class="mt-3 text-xl">Our advisory board is integral in overseeing all facets of the event, ensuring solutions that align with <br>
+the event's vision and resonate even beyond its conclusion. Serving as a panel of experts, they<br>
+adeptly manage the event's objectives and overarching theme.</p>
+            </div><!--end grid-->
+        </div>
+        </div>
+      
+      <!-- <div class="text-center pb-8">
+        
+        <h2 class="text-4xl leading-normal tracking-wider font-semibold text-black">EAGMA STRUCTURE</h2>
+      </div> -->
+        <div class="card overflow-x-auto">
+            <OrganizationChart :value="data" collapsible>
+                <template #person="slotProps">
+                    <div class="flex flex-column">
+                        <div class="flex flex-column align-items-center">
+                            <span class="font-bold mb-2">{{ slotProps.node.data.name }}</span>
+                        </div>
+                    </div>
+                </template>
+                <template #default="slotProps">
+                    <span>{{ slotProps.node.label }}</span>
+                </template>
+            </OrganizationChart>
+        </div>
+    </div>
+
+
+    <div class="container mx-auto">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-[40px]	align-content: center;">
+        <!-- user -->
+      <div class="group relative">
+        <div class=" bg-white shadow-box3 rounded-md transition-all duration-100 text-center hover:shadow-box4   ">
+          <div class=" h-auto rounded-t-md  relative mx-auto  overflow-hidden">
+            <img src="../assets/img/team/1.png" alt="" class=" w-full h-full object-cover rounded-t-md ">
+          </div>
+          <div class="course-content p-6">
+            <h4 class=" lg:text-2xl text-1xl mb-1 font-bold">Mwalimu Christopher Mwakasege</h4>
+            <div>A Prominent Itinerant Teacher of the Gospel in Tanzania</div>
+          </div>
+        </div>
+      </div>
+      <!-- end of user -->
+
+        <!-- user -->
+        <div class="group relative">
+        <div class=" bg-white shadow-box3 rounded-md transition-all duration-100 text-center hover:shadow-box4   ">
+          <div class=" h-auto rounded-t-md  relative mx-auto  overflow-hidden">
+            <img src="../assets/img/team/2.png" alt="" class=" w-full h-full object-cover bg-center rounded-t-md ">
+          </div>
+          <div class="course-content p-6">
+            <h4 class=" lg:text-2xl text-1xl mb-1 font-bold">Hon Eric James Shigongo</h4>
+            <div>A member of the Parliament of Tanzania, an Entrepreneur and the founder of Global Publishers</div>
+          </div>
+        </div>
+      </div>
+      <!-- end of user -->
+
+        <!-- user -->
+        <div class="group relative">
+        <div class=" bg-white shadow-box3 rounded-md transition-all duration-100 text-center hover:shadow-box4   ">
+          <div class=" h-auto rounded-t-md  relative mx-auto  overflow-hidden">
+            <img src="../assets/img/team/3.png" alt="" class=" w-full h-full object-cover rounded-t-md ">
+          </div>
+          <div class="course-content p-6">
+            <h4 class=" lg:text-2xl text-1xl mb-1 font-bold">Js Malachi Joseph</h4>
+            <div>Prophet and Preacher at Christ Mandate Ministries (CMPM)</div>
+          </div>
+        </div>
+      </div>
+      <!-- end of user -->
+
+        <!-- user -->
+        <div class="group relative">
+        <div class=" bg-white shadow-box3 rounded-md transition-all duration-100 text-center hover:shadow-box4   ">
+          <div class=" h-auto rounded-t-md  relative mx-auto  overflow-hidden">
+            <img src="../assets/img/team/4.png" alt="" class=" w-full h-full object-cover rounded-t-md ">
+          </div>
+          <div class="course-content p-6">
+            <h4 class=" lg:text-2xl text-1xl mb-1 font-bold">Phillip Saliboko</h4>
+            <div>Managing Director at ELYON Trading & Investments Company Ltd</div>
+          </div>
+        </div>
+      </div>
+      <!-- end of user -->
+
+       <!-- user -->
+       <div class="group relative">
+        <div class=" bg-white shadow-box3 rounded-md transition-all duration-100 text-center hover:shadow-box4   ">
+          <div class=" h-[270px] rounded-t-md  relative mx-auto  overflow-hidden">
+            <img src="../assets/img/team/mc.jpg" alt="" class=" w-full h-full object-cover rounded-t-md ">
+          </div>
+          <div class="course-content p-6">
+            <h4 class=" lg:text-2xl text-1xl mb-1 font-bold">Magreth Wilson Chacha</h4>
+            <div>Managing Director Of Centre Stage Group of
+Company And Founder Of Eagma.</div>
+          </div>
+        </div>
+      </div>
+      <!-- end of user -->
+
+      <!-- user -->
+      <div class="group relative">
+        <div class=" bg-white shadow-box3 rounded-md transition-all duration-100 text-center hover:shadow-box4   ">
+          <div class=" h-[270px] rounded-t-md  relative mx-auto  overflow-hidden">
+            <img src="../assets/img/team/ado.jpg" alt="" class=" w-full h-full object-cover rounded-t-md ">
+          </div>
+          <div class="course-content p-6">
+            <h4 class=" lg:text-2xl text-1xl mb-1 font-bold">Addo November</h4>
+            <div>Board of Advisory</div>
+          </div>
+        </div>
+      </div>
+      <!-- end of user -->
+    </div>
+  </div>
+
+
   <!-- counter -->
   <div class="py-[150px]">
     <div class="max-w-[1350px] mx-auto px-[15px]">
@@ -232,10 +360,106 @@
 
 <script setup>
 // import PageTitle from "@/components/PageTitle.vue";
-
+import OrganizationChart from 'primevue/organizationchart';
 import Breadcrum from "@/components/Breadcrum.vue";
 import { ref } from "vue";
 
 const backgroundUrl = "@/assets/img/banner/home-banner.png";
 const pageLinks = [{ text: "Home", route: { name: "home" } }, { text: "About" }];
+
+const data = ref({
+    key: '0',
+    type: 'person',
+    styleClass: 'bg-black text-white border-round-xl',
+    data: {
+        name: 'Founder',
+    },
+    children: [
+        {
+            key: '0_0',
+            type: 'person',
+            styleClass: 'bg-black text-white border-round-xl',
+            data: {
+                name: 'Board of advisory',
+            },
+            children: [
+                {
+                    label: 'MINISTRY OF CULTURE ARTS & SPORTS TANZANIA',
+                    styleClass: 'bg-black text-white border-round-xl',
+                    children: [
+                        {
+                            label: 'BASATA',
+                            styleClass: 'bg-black text-white border-round-xl'
+                        },
+                        {
+                            label: 'COSOTA',
+                            styleClass: 'bg-black text-white border-round-xl'
+                        },
+                        {
+                            label: 'JUDGES',
+                            styleClass: 'bg-black text-white border-round-xl'
+                        },
+                    ]
+                },
+                {
+                    label: 'EAST AFRICA CORPORATION CULTURE ARTS & SPORTS',
+                    styleClass: 'bg-black text-white border-round-xl',
+                    children: [
+                        {
+                            label: 'KENYA COMMITTEE',
+                            styleClass: 'bg-black text-white border-round-xl'
+                        },
+                        {
+                            label: 'UGANDA COMMITTEE',
+                            styleClass: 'bg-black text-white border-round-xl'
+                        },
+                        {
+                            label: 'RWANDA/BURUNDI COMMITTEE',
+                            styleClass: 'bg-black text-white border-round-xl'
+                        },
+                    ]
+                },
+                {
+                    label: 'ORGANIZING COMMITTEE CHAIRMAN',
+                    styleClass: 'bg-black text-white border-round-xl',
+                    children:[
+                        {
+                            label: 'EVENT COMMITTEE',
+                            styleClass: 'bg-black text-white border-round-xl'
+                        },
+                    ]
+                }, {
+                    label: 'MAIN SPONSOR & PARTNERS',
+                    styleClass: 'bg-black text-white border-round-xl',
+                    children:[
+                        {
+                            label: 'MARKETING & PR TEAM',
+                            styleClass: 'bg-black text-white border-round-xl'
+                        },
+                    ]
+                }
+            ]
+        },
+        // {
+        //     key: '0_1',
+        //     type: 'person',
+        //     styleClass: 'bg-black text-white border-round-xl',
+        //     data: {
+        //         image: 'https://primefaces.org/cdn/primevue/images/avatar/stephenshaw.png',
+        //         name: 'Stephen Shaw',
+        //         title: 'CTO'
+        //     },
+        //     children: [
+        //         {
+        //             label: 'Development',
+        //             styleClass: 'bg-black text-white border-round-xl'
+        //         },
+        //         {
+        //             label: 'UI/UX Design',
+        //             styleClass: 'bg-black text-white border-round-xl'
+        //         }
+        //     ]
+        // }
+    ]
+});
 </script>

@@ -1,4 +1,44 @@
 <template>
+	 <section class="pt-20">
+        <div class="mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+            <div
+                class="grid lg:grid-cols-2 bg-[#C2922E divide-y lg:divide-y-0 lg:divide-x bg-[#C2922E border bg-[#C2922E shadow-customFive rounded-[15px]">
+
+                <div class="flex flex-col md:flex-row  gap-6 py-14 px-20">
+                    <div>
+                        <img src="@/assets/img/icons/location-pin.png" alt="map icon" class="w-24 h-24">
+                    </div>
+                    <div class="grow">
+                        <h4 class="text-2xl font-semibold text-devanga-primary font-raleway">
+                            Our Address
+                        </h4>
+                        <address class="text-lg text-devanga-primary not-italic font-raleway">Regent Business Par
+							<br>
+                            1st Floor House no 17 <br>Chakwa Street, Mikocheni near Shoppers Plaza.
+
+                        </address>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-6 py-14 px-20">
+                    <div>
+                        <img src="@/assets/img/icons/contacts.png" alt="map icon" class="w-24 h-24">
+                    </div>
+                    <div class="grow">
+                        <h4 class="text-2xl font-semibold text-devanga-primary font-raleway">
+                            Contact Info
+                        </h4>
+                        <p class="text-lg text-devanga-primary not-italic font-raleway">
+                            Open a chat or give us call at <br>
+                            <a href="tel:+255786000122" class="font-medium text-interface-100">+255 786 000 122</a> <br>
+                            <a href="mailto:info@eagma.co.tz" class="font-medium text-interface-100">info@eagma.co.tz</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="relative z-30 bg-white mt-0 xl:mt-[150px] mb-[150px]">
 			<div class="group relative xl:absolute top-0 right-0 bottom-0 xl:w-1/2 hway overflow-hidden hway-active">
 				<div class="absolute h-full w-0 group-[.hway-active]:w-full bg-[#C2922E] transition-all duration-[.5s]"></div>
