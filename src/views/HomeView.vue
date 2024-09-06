@@ -69,7 +69,7 @@
 
   <section class="section-wrap bg-amber-100">
     <div class="container mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
         <!-- First column -->
 
         <div class="p-4">
