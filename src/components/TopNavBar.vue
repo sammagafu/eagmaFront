@@ -1,45 +1,41 @@
 <template>
-<nav class="bg-gray-900">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <router-link :to="{ name: 'home' }">
-        <img src="@/assets/eagma.svg" class="h-48 mr" alt="EAGMA LOGO" />
-      </router-link>
-      <button
-        @click="toggleMenu"
-        type="button"
-        class="inline-flex items-center p-2 w-16 h-16 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2"
-        aria-controls="navbar-default"
-        aria-expanded="false"
-      >
-        <span class="sr-only">Open main menu</span>
-        <svg
-          class="w-5 h-5"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 17 14"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M1 1h15M1 7h15M1 13h15"
-          />
-        </svg>
-      </button>
-    <div class="w-full md:block md:w-auto" id="navbar-default" :class="{ 'block': isOpen, 'hidden': !isOpen }">
-      <ul class="font-medium uppercase flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
-        <li v-for="(item, index) in menuItems" :key="index">
-            <router-link :to="item.route" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-[#C2922E]">
-              {{ item.label }}
-            </router-link>
-          </li>
-      </ul>
+  <header class="sticky top-0 z-50 bg-black shadow-md">
+    <div class="container mx-auto flex justify-center items-center">
+      <router-link :to="{ name: 'home' }" class="text-xl font-bold text-gray-800">
+            <img src="@/assets/eagma.svg" class="h-32" alt="EAGMA LOGO" />
+          </router-link>
     </div>
-  </div>
-</nav>
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-center h-16 items-center">
+        <!-- <div class="flex-shrink-0">
+          
+        </div> -->
+        <div class="hidden md:flex space-x-8 ">
+          <router-link v-for="(item, index) in menuItems" :key="index" :to="item.route" 
+            class="text-alternate hover:text-alternate-light font-semibold uppercase tracking-widest">
+            {{ item.label }}
+          </router-link>
+        </div>
+        <div class="md:hidden">
+          <button @click="toggleMenu" class="text-gray-600 hover:text-gray-800 focus:outline-none">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
 
+    <!-- Mobile Menu -->
+    <div v-if="isOpen" class="md:hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <router-link v-for="(item, index) in menuItems" :key="index" :to="item.route" 
+          class="block text-gray-600 hover:text-gray-800">
+          {{ item.label }}
+        </router-link>
+      </div>
+    </div>
+  </header>
 </template>
 
 <script setup>
