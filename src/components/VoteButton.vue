@@ -1,7 +1,7 @@
 <template>
 <Toast />
   <form @submit.prevent="voteForArtist">
-    <button type="submit" class="text-white bg-[#C2922E] hover:bg-yellow-700 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium text-sm px-4 py-1 text-center dark:focus:ring-yellow-900 w-full">Vote Now</button>
+    <button type="submit" class="text-white bg-primary hover:bg-primary/50 focus:outline-none focus:ring-4 font-semibold text-sm px-4 py-4 text-center w-full uppercase">Vote Now</button>
   </form>
 </template>
 

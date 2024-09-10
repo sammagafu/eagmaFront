@@ -1,10 +1,6 @@
 <template>
-  <!-- YourMainTemplate.vue -->
-  <section class="relative table w-full items-center py-36 bg-[url('../assets/img/header/blog.jpg')] bg-center bg-no-repeat bg-cover">
-  </section>
-
   <!-- Artist Cards Section -->
-  <div class="pt-[20px] xl:pt-[150px] pb-[150px]">
+  <div class="pt-[20px] xl:pt-[150px] pb-[150px] bg-black">
     <div class="max-w-[1350px] mx-auto px-[15px]">
       <Toast ref="toast" />
       <div class="grid grid-cols-1 xl:grid-cols-3 xl:gap-[60px]">
@@ -39,7 +35,7 @@
                         <!-- <VoteButton :category="category" :artist="artist"/> -->
                       </div>
 
-                      <div class="flex flex-row-reverse md:flex-row gap-2">
+                      <div class="flex flex-row-reverse md:flex-col gap-2">
                         <!-- <Button label="view" class="bg-slate-800 text-white px-4 py-1" link=""></Button> -->
                         <VoteButton :category="item.category" :artist="item.artist" :award="item.award.id"/>
                         <ArtistProfile :slug="item.artist.slug"/>
@@ -134,8 +130,8 @@
           </div>
         </div>
         <div class="hidden xl:block">
-          <div class="bg-gray-300 p-[30px] mb-[60px] dark:bg-slate-800 text-[#C2922E] rounded-xl">
-            <div class="text-[#C2922E] text-[26px] leading-[26px] font-medium mb-[40px]">Filter By Category</div>
+          <div class="bg-primary p-[30px] mb-[60px] text-white rounded-xl">
+            <div class="text-white text-[26px] leading-[26px] font-medium mb-[40px]">Filter By Category</div>
             <button @click="filterByCategory('all')" class="flex items-center justify-between hover:text-[#ff5100] py-2">
               <div class="flex items-center">
                 <div class="me-[10px]"><i class="pi pi-angle-double-right"></i></div>

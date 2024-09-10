@@ -60,30 +60,22 @@
     </div>
   </div>
 
-  <section class="section-wrap pb-24 bg-black">
+  <section class="section-wrap py-24 bg-black">
     <div class="container mx-auto">
       <ul class="grid grid-cols-1 gap-[30px] lg:grid-cols-2">
         <!-- Service Item -->
-        <li class="" data-jos_delay="0" data-jos_once="1" data-jos_animation="fade-up" data-jos_timingfunction="ease"
+        <li class="h-full" data-jos_delay="0" data-jos_once="1" data-jos_animation="fade-up" data-jos_timingfunction="ease"
           data-jos_duration="0.7" data-jos_counter="1">
-          <div class="bg-alternate">
+          <div class="border py-6 rounded-lg border-alternate text-alternate">
             <div
               class="flex h-full flex-col items-start overflow-hidden rounded-[20px] p-[30px] transition duration-300">
-              <div class="mx-auto">
+              <div class="mx-auto justify-center flex flex-col items-center">
+                <img src="@/assets/img/icons/mission.svg" alt="mission" class="w-24 h-24 text-primary">
 
-                <h4 class="mb-[15px] mt-[30px] uppercase font-semibold text-center tracking-widest"> Our Mission</h4>
+                <h4 class="mb-[15px] mt-[30px] uppercase font-semibold text-center tracking-widest text-2xl"> Our Mission</h4>
               </div>
-              <p class="">
-                Creating an academy for nurturing young talents through creative and
-                innovative ways
-              </p>
-              <p class="">
-                Appreciating, celebrating, and recognizing East African musical talent
-              </p>
-              <p class="">
-                Fostering positive changes in the behaviour of young talents in society by
-                providing a platform for them to express themselves creatively and have
-                their voices heard.
+              <p class="text-center ">
+                to nurture young talents through creative and innovative methods, celebrate and recognize East African musical excellence, and foster positive societal change by giving young artists a platform to express themselves and be heard.
               </p>
               <!-- <a class="mt-auto inline-block translate-x-0 transition-all duration-300 group-hover:translate-x-5" href="/service-details"><img src="" alt="icon-black-arrow-right" width="34" height="28"></a> -->
             </div>
@@ -91,26 +83,17 @@
         </li>
         <!-- Service Item -->
         <!-- Service Item -->
-        <li class="" data-jos_delay="0.3" data-jos_once="1" data-jos_animation="fade-up" data-jos_timingfunction="ease"
+        <li class="h-full" data-jos_delay="0.3" data-jos_once="1" data-jos_animation="fade-up" data-jos_timingfunction="ease"
           data-jos_duration="0.7" data-jos_counter="1">
-          <div class="bg-alternate">
+          <div class="border py-6 rounded-lg border-alternate text-alternate">
             <div class="flex h-full flex-col items-start overflow-hidden p-[30px] transition duration-300">
-              <div class="mx-auto">
-
-                <h4 class="mb-[15px] mt-[30px] uppercase font-semibold text-center tracking-widest"> Our Vision</h4>
+              <div class="mx-auto justify-center flex flex-col items-center">
+                <img src="@/assets/img/icons/vision.svg" alt="vision" class="w-24 h-24 text-primary">
+                <h4 class="mb-[15px] mt-[30px] uppercase font-semibold text-center tracking-widest text-2xl"> Our Vision</h4>
               </div>
 
-              <p class="">
-                Preserving East African musical heritage
-              </p>
-              <p class="">
-                Promoting excellence in presentation and grooming of our Musical Talents
-              </p>
-              <p class="">
-                Expanding opportunities for creatively delivering top-notch talents.
-              </p>
-              <p class="">
-                Expanding opportunities for creatively delivering top-notch talents.
+              <p class="text-center">
+                We aim to preserve East African musical heritage, promote excellence in talent grooming and presentation, and expand opportunities for showcasing top-tier creative talents.
               </p>
               <!-- <a class="mt-auto inline-block translate-x-0 transition-all duration-300 group-hover:translate-x-5" href="/service-details"><img src="" alt="icon-black-arrow-right" width="34" height="28"></a> -->
             </div>
@@ -139,12 +122,12 @@
   <div v-for="(award, index) in categories" :key="index">
     <router-link :to="{ name: 'filtered-artist', params: { slug: award.slug } }" class="pointer">
       <!-- Add h-full to ensure all cards stretch to the same height -->
-      <div class="relative overflow-hidden bg-gradient-to-r from-alternate to-alternate-light rounded-lg max-w-full shadow-lg flex flex-col h-full">
+      <div class="relative overflow-hidden bg-gradient-to-r from-gray-800 to-gray-900 rounded-lg max-w-full shadow-lg flex flex-col h-full">
         <svg
           class="absolute bottom-0 left-0 mb-8"
           viewBox="0 0 375 283"
           fill="none"
-          style="transform: scale(1.5); opacity: 0.1;"
+          style="transform: scale(2.0); opacity: 0.04;"
         >
           <rect
             x="159.52"
@@ -165,7 +148,7 @@
           />
         </div>
         <!-- Add flex-grow to stretch the text section to fill remaining space -->
-        <div class="relative text-black px-6 pb-6 mt-6 flex-grow flex items-center justify-center">
+        <div class="relative text-alternate-light px-6 pb-6 mt-6 flex-grow flex items-center justify-center">
           <div class="flex justify-center">
             <span class="block text-baseline text-center font-semibold uppercase tracking-wider">{{ award.name }}</span>
           </div>
@@ -424,5 +407,6 @@
   onMounted(() => {
     fetchInitialData();
     getVerse();
+    getRandomVerse();
   })
 </script>

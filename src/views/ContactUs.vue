@@ -2,11 +2,11 @@
 	 <section class="pt-20">
         <div class="mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             <div
-                class="grid lg:grid-cols-2 bg-[#C2922E divide-y lg:divide-y-0 lg:divide-x bg-[#C2922E border bg-[#C2922E shadow-customFive rounded-[15px]">
+                class="grid lg:grid-cols-2 bg-black/30 divide-y lg:divide-y-0 lg:divide-x bg-[#C2922E border bg-[#C2922E shadow-customFive rounded-[15px]">
 
                 <div class="flex flex-col md:flex-row  gap-6 py-14 px-20">
                     <div>
-                        <img src="@/assets/img/icons/location-pin.png" alt="map icon" class="w-24 h-24">
+                        <img src="@/assets/img/icons/location-pin.png" alt="map icon" class="w-24">
                     </div>
                     <div class="grow">
                         <h4 class="text-2xl font-semibold text-devanga-primary font-raleway">
@@ -22,7 +22,7 @@
 
                 <div class="flex flex-col md:flex-row gap-6 py-14 px-20">
                     <div>
-                        <img src="@/assets/img/icons/contacts.png" alt="map icon" class="w-24 h-24">
+                        <img src="@/assets/img/icons/contacts.png" alt="map icon" class="w-24">
                     </div>
                     <div class="grow">
                         <h4 class="text-2xl font-semibold text-devanga-primary font-raleway">

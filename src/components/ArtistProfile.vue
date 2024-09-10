@@ -1,6 +1,6 @@
 
 <template>
-    <router-link class="text-white bg-slate-800 hover:bg-slate-400 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium text-sm px-4 py-1 text-center dark:focus:ring-yellow-900 w-full" :to="{ name: 'artistDetial', params: { slug }}">
+    <router-link class="text-white bg-secondary hover:bg-slate-400 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-semibold px-4 py-4 text-center w-full uppercase" :to="{ name: 'artistDetial', params: { slug }}">
       View Profile
     </router-link>
   </template>

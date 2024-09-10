@@ -2,7 +2,7 @@
   <header class="sticky top-0 z-50 bg-black shadow-md">
     <div class="container mx-auto flex justify-center items-center">
       <router-link :to="{ name: 'home' }" class="text-xl font-bold text-gray-800">
-            <img src="@/assets/eagma.svg" class="h-32" alt="EAGMA LOGO" />
+            <img src="@/assets/eagma.svg" class="h-48" alt="EAGMA LOGO" />
           </router-link>
     </div>
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
