@@ -48,9 +48,9 @@
 
               <!-- Grid View Template -->
               <template #grid="slotProps">
-                <div class="grid grid-cols-12 gap-4">
-                  <div v-for="(item, index) in slotProps.items" :key="index" class="col-span-12 sm:col-span-6 md:col-span-4 xl:col-span-6 p-2">
-                    <div class="p-6 border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900 rounded flex flex-col">
+                <div class="grid grid-cols-12 gap-6 bg-black pt-8">
+                  <div v-for="(item, index) in slotProps.items" :key="index" class="col-span-12 sm:col-span-6 md:col-span-4 xl:col-span-4">
+                    <div class="p-6 hover:border-primary hover:border-2 bg-surface-0 dark:bg-surface-900 rounded flex flex-col">
                       <div class="bg-surface-50 flex justify-center rounded p-4">
                         <div class="relative mx-auto">
                           <img class="rounded w-full" :src="item.artist.photo" :alt="item.artist.name" />
@@ -59,8 +59,8 @@
                       <div class="pt-6">
                         <div class="flex flex-row justify-between items-start gap-2">
                           <div>
-                            <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category.name }}</span>
-                            <div class="text-lg font-medium mt-1">{{ item.artist.name }}</div>
+                            <span class="font-medium text-alternate text-sm">{{ item.category.name }}</span>
+                            <div class="text-lg font-semibold text-white/60 mt-1">{{ item.artist.name }}</div>
                           </div>
                           <!-- <Button label="Vote" @click="voteForNominee(item.id)" /> -->
                         </div>
@@ -110,7 +110,7 @@
 
               <template #grid>
                 <div class="grid grid-cols-12 gap-4">
-                  <div v-for="i in 6" :key="i" class="col-span-12 sm:col-span-6 md:col-span-4 xl:col-span-6 p-2">
+                  <div v-for="i in 6" :key="i" class="col-span-12 sm:col-span-6 md:col-span-4 xl:col-span-4 p-2">
                     <div class="p-6 border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900 rounded flex flex-col">
                       <div class="bg-surface-50 flex justify-center rounded p-4">
                         <Skeleton width="75%" height="10rem" />
