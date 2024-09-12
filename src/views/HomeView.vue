@@ -119,7 +119,7 @@
     </div>
     <div class="container mx-auto py-8 sm:px-4">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-  <div v-for="(award, index) in categories" :key="index">
+  <div v-for="(award, index) in sortedCategories" :key="index">
     <router-link :to="{ name: 'filtered-artist', params: { slug: award.slug } }" class="pointer">
       <!-- Add h-full to ensure all cards stretch to the same height -->
       <div class="relative overflow-hidden bg-gradient-to-r from-gray-800 to-gray-900 rounded-lg max-w-full shadow-lg flex flex-col h-full">
@@ -282,131 +282,73 @@
 
 
 <script setup>
-  import {
-    ref,
-    reactive,
-    onMounted,
-    computed
-  } from "vue";
-  import {
-    Swiper,
-    SwiperSlide
-  } from "swiper/vue";
-  import {
-    Autoplay,
-    Pagination,
-    Navigation,
-    EffectFade
-  } from "swiper/modules";
-  import VueWriter from "vue-writer";
-  import instance from "@/service";
+import { ref, onMounted, computed } from "vue";
+import axios from "axios";
+import instance from "@/service";
+import LoadingOverlay from '@/components/LoadingOverlay.vue';
+import VueWriter from "vue-writer";
 
+// Define state variables
+const loading = ref(false);
+const categories = ref([]);
+const blog = ref([]);
+const nominees = ref([]);
+const verse = ref({
+  bookname: '',
+  chapter: '',
+  verse: '',
+  text: '',
+});
 
-  // images
-  import sliderImgUrl from "@/assets/img/banner/slider-1.jpg";
-
-  // css
-  import "swiper/css";
-  import "swiper/css/navigation";
-  import axios from "axios";
-  import LoadingOverlay from '@/components/LoadingOverlay.vue';
-
-  const modules = [Autoplay, Pagination, Navigation, EffectFade];
-
-  const onSwiper = ref(null);
-  const onSlideChange = ref(null);
-  const textSlider = ref([
-    'Celebrating', 'Nurturing', 'Empowering'
-  ])
-
-  const handleSwiper = (swiperInstance) => {
-    onSwiper.value = swiperInstance;
-  };
-
-  const award = ref()
-  const categories = ref([])
-  const blog = ref([])
-  const nominees = ref([])
-
-  const verse = ref({
-    bookname: '',
-    chapter: '',
-    verse: '',
-    text: '',
-  });
-  const loading = ref(false);
-
-
-  const handleSlideChange = () => {
-    console.log("slide change");
-  };
-
-  window.myCallback = function (response) {
-    const result = response[0];
-    verse.value = {
-      bookname: result.bookname,
-      chapter: result.chapter,
-      verse: result.verse,
-      text: result.text,
-    };
-    loading.value = false;
-  };
-
-  const getVerse = () => {
-    loading.value = true;
-    const script = document.createElement('script');
-    script.src = 'https://labs.bible.org/api/?passage=random&type=json&callback=myCallback';
-    document.body.appendChild(script);
-  };
-  const getRandomVerse = () => {
-    axios
-      .get(
-        'https://labs.bible.org/api/?passage=random&type=json&callback=myCallback', {
-          crossDomain: true,
-          responseType: 'jsonp',
-        }
-      )
-      .then((response) => {
-        const result = response.data[0];
-        bookname.value = result.bookname;
-        chapter.value = result.chapter;
-        verse.value = result.verse;
-        text.value = result.text;
-        // verse.value = {
-        //   bookname: result.bookname,
-        //   chapter: result.chapter,
-        //   verse: result.verse,
-        //   text: result.text,
-        // };
-        console.log('verse.value :>> ', text.value);
-      })
-
-      .catch((error) => {
-        console.error('Error fetching verse:', error);
-      });
-  };
-
-  async function fetchInitialData() {
+// Function to fetch data from backend
+async function fetchInitialData() {
+  loading.value = true;
   try {
+    // Fetching categories, blogs, and nominees concurrently
     const [categoriesResponse, blogsResponse, nomineesResponse] = await Promise.all([
       instance.get("awards/active/"),
       instance.get("blog/latest/"),
       instance.get("nominees/")
     ]);
+
+    // Flatten categories and set the data
     categories.value = categoriesResponse.data.map(award => award.categories).flat();
     blog.value = blogsResponse.data;
     nominees.value = nomineesResponse.data;
   } catch (error) {
     console.error('Error during initial data fetch:', error);
   } finally {
-    loading.value = false;  // Set loading to false once all data is fetched or in case of an error
+    loading.value = false;  // Set loading to false once data is fetched or error occurs
   }
 }
 
+// Sorting and slicing categories to get the first 20 items by id
+const sortedCategories = computed(() => {
+  return categories.value.sort((a, b) => a.id - b.id).slice(0, 20);
+});
 
-  onMounted(() => {
-    fetchInitialData();
-    getVerse();
-    getRandomVerse();
-  })
+// Fetch verse of the day (optional functionality)
+const getVerse = () => {
+  loading.value = true;
+  const script = document.createElement('script');
+  script.src = 'https://labs.bible.org/api/?passage=random&type=json&callback=myCallback';
+  document.body.appendChild(script);
+};
+
+window.myCallback = function (response) {
+  const result = response[0];
+  verse.value = {
+    bookname: result.bookname,
+    chapter: result.chapter,
+    verse: result.verse,
+    text: result.text,
+  };
+  loading.value = false;
+};
+
+// Trigger fetch on component mount
+onMounted(() => {
+  fetchInitialData();
+  getVerse();
+});
 </script>

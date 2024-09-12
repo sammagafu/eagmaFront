@@ -153,9 +153,6 @@
     </div>
   </div>
   
-  <section class="py-16">
-    <div class="container mx-auto"></div>
-  </section>
 </template>
 
 <script setup>
@@ -163,7 +160,6 @@ import { ref, onMounted, computed } from 'vue';
 import instance from '@/service';  // Assuming this is set up for API requests
 import DataView from 'primevue/dataview';
 import SelectButton from 'primevue/selectbutton';
-import Button from 'primevue/button';
 import Skeleton from 'primevue/skeleton';
 import Toast from 'primevue/toast';
 import { useToast } from 'primevue/usetoast';

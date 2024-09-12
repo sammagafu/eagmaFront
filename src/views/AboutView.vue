@@ -358,59 +358,91 @@
   }];
 
   const data = ref({
-    label: 'Founder',
-    children: [
+  label: 'Founder',
+  children: [
+    {
+      label: 'Board of advisory',
+      children: [
         {
-            label: 'Board of advisory',
-            children: [
-                {
-                    label: 'MINISTRY OF CULTURE ARTS & SPORTS TANZANIA',
-                    children: [
-                        { label: 'BASATA' },
-                        { label: 'COSOTA' },
-                        { label: 'JUDGES' }
-                    ]
-                },
-                {
-                    label: 'EAST AFRICA CORPORATION CULTURE ARTS & SPORTS',
-                    children: [
-                        { label: 'KENYA COMMITTEE' },
-                        { label: 'UGANDA COMMITTEE' },
-                        { label: 'RWANDA/BURUNDI COMMITTEE' }
-                    ]
-                },
-                {
-                    label: 'ORGANIZING COMMITTEE CHAIRMAN',
-                    children: [
-                        { label: 'EVENT COMMITTEE', styleClass: 'bg-black text-white border-round-xl' }
-                    ]
-                },
-                {
-                    label: 'MAIN SPONSOR & PARTNERS',
-                    children: [
-                        { label: 'MARKETING & PR TEAM', styleClass: 'bg-black text-white border-round-xl' }
-                    ]
-                }
-            ]
+          label: 'MINISTRY OF CULTURE ARTS & SPORTS TANZANIA',
+          children: [
+            { label: 'BASATA' },
+            { label: 'COSOTA' },
+            { label: 'JUDGES' }
+          ]
+        },
+        {
+          label: 'EAST AFRICA CORPORATION CULTURE ARTS & SPORTS',
+          children: [
+            { label: 'KENYA COMMITTEE' },
+            { label: 'UGANDA COMMITTEE' },
+            { label: 'RWANDA/BURUNDI COMMITTEE' }
+          ]
+        },
+        {
+          label: 'ORGANIZING COMMITTEE CHAIRMAN',
+          children: [
+            { label: 'EVENT COMMITTEE' }
+          ]
+        },
+        {
+          label: 'MAIN SPONSOR & PARTNERS',
+          children: [
+            { label: 'MARKETING & PR TEAM' }
+          ]
         }
-    ]
+      ]
+    }
+  ]
 });
+
 
 </script>
 
-<style>
-
+<style scoped>
+/* Styling node content */
 .node-content {
-    padding: 5px 10px;
-    background: #f4f4f4;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    display: inline-block;
+  padding: 5px 10px;
+  background: #632e2e;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: inline-block;
+  text-align: center;
 }
 
-.p-organizationchart .p-organizationchart-line-down,
+/* Ensuring that vertical lines (down) are properly connected */
+.p-organizationchart .p-organizationchart-line-down {
+  border-left: 2px solid #fff; /* Vertical line color */
+  height: 20px; /* Adjust height to align nodes vertically */
+  margin-left: -1px; /* Adjust to align with parent node */
+}
+
+/* Ensuring that horizontal lines (left and right) are properly connected */
 .p-organizationchart .p-organizationchart-line-right,
 .p-organizationchart .p-organizationchart-line-left {
-    border-color: #ccc; /* Ensures lines are visible */
+  border-top: 2px solid #fff; /* Horizontal line color */
+  height: 2px; /* Line thickness */
+  margin-top: -1px; /* Adjust to remove gap between lines and nodes */
+}
+
+/* Extending lines from the center to ensure a connected look */
+.p-organizationchart .p-organizationchart-line-right:before,
+.p-organizationchart .p-organizationchart-line-left:before {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 2px; /* Height of side lines */
+  background-color: #fff !important; /* Line color */
+  position: absolute;
+  top: 0; /* Aligns line at the correct height */
+  left: 0; /* Adjust starting point of the line */
+}
+
+/* Basic node styling */
+.p-organizationchart-node-content {
+  background: #f4f4f4;
+  color: #333;
+  border-radius: 5px;
+  padding: 10px;
 }
 </style>

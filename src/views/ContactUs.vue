@@ -1,5 +1,5 @@
 <template>
-	 <section class="pt-20">
+	 <section class="py-20 bg-black text-alternate">
         <div class="mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             <div
                 class="grid lg:grid-cols-2 bg-black/30 divide-y lg:divide-y-0 lg:divide-x bg-[#C2922E border bg-[#C2922E shadow-customFive rounded-[15px]">
